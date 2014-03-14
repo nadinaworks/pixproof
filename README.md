@@ -1,4 +1,4 @@
 pixproof
 ========
 
-WordPress photo gallery proofing plugin. Using a CPT you will create special protected galleries that will allow your clients to examine and approve the photos.
+WordPress photo gallery proofing plugin. Using special protected galleries you will allow your clients to examine and approve your photos.
