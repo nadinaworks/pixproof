@@ -253,7 +253,7 @@ class pixproof_Meta_Box {
 		}
 		wp_register_script( 'cmb-timepicker', PIXPROOF_META_BOX_URL . 'js/jquery.timePicker.min.js' );
 		wp_register_script( 'cmb-scripts', PIXPROOF_META_BOX_URL .'js/cmb'. $min .'.js', $scripts, self::CMB_VERSION );
-
+		wp_register_script( 'proof_pixgallery', PIXPROOF_META_BOX_URL . 'js/proof_pixgallery.js' );
 		wp_enqueue_media();
 
 		wp_localize_script( 'cmb-scripts', 'pixproof_l10', array(
@@ -269,7 +269,7 @@ class pixproof_Meta_Box {
 			'ajaxurl'         => admin_url( '/admin-ajax.php' ),
 		) );
 
-		wp_register_style( 'cmb-styles', PIXPROOF_META_BOX_URL . 'style'. $min .'.css', $styles );
+		wp_register_style( 'pixproof-styles', PIXPROOF_META_BOX_URL . 'style.css', $styles );
 
 		// Ok, we've enqueued our scripts/styles
 		self::$is_enqueued = true;
@@ -286,7 +286,7 @@ class pixproof_Meta_Box {
 
 			// default is to show cmb styles on post pages
 			if ( $this->_meta_box['pixproof_styles'] != false )
-				wp_enqueue_style( 'cmb-styles' );
+				wp_enqueue_style( 'pixproof-styles' );
 		}
 	}
 
@@ -344,7 +344,7 @@ class pixproof_Meta_Box {
 
 		// default is to NOT show cmb styles on user profile page
 		if ( $this->_meta_box['pixproof_styles'] != false )
-			wp_enqueue_style( 'cmb-styles' );
+			wp_enqueue_style( 'pixproof-styles' );
 
 		self::show_form( $this->_meta_box );
 
@@ -415,7 +415,7 @@ class pixproof_Meta_Box {
 			if ( $field['type'] == "title" ) {
 				echo '<td colspan="2">';
 			} else {
-				if ( isset( $meta_box['show_names'] ) && $meta_box['show_names'] == true ) {
+				if ( isset( $meta_box['show_names'] ) && $meta_box['show_names'] == true && $field['type'] != 'gallery' ) {
 					$style = $object_type == 'post' ? ' style="width:18%"' : '';
 					echo '<th'. $style .'><label for="', $field['id'], '">', $field['name'], '</label></th>';
 				} else {
@@ -1125,7 +1125,7 @@ function pixproof_print_metabox( $meta_box, $object_id ) {
 
 		// default is to show cmb styles
 		if ( $meta_box['pixproof_styles'] != false )
-			wp_enqueue_style( 'cmb-styles' );
+			wp_enqueue_style( 'pixproof-styles' );
 
 		pixproof_Meta_Box::show_form( $meta_box );
 	}
@@ -1191,3 +1191,30 @@ function pixproof_metabox_form( $meta_box, $object_id, $echo = true ) {
 }
 
 // End. That's it, folks! //
+// not yet ... let's ajaxify things around
+
+// create an ajax call which will return a preview to the current gallery
+function ajax_proof_pixgallery_preview(){
+	$result = array('success' => false, 'output' => '');
+
+	if (isset($_REQUEST['attachments_ids'])) {
+		$ids = $_REQUEST['attachments_ids'];
+	}
+	if ( empty($ids) ) {
+		echo json_encode( $result );
+		exit;
+	}
+
+	$ids = explode( ',', $ids );
+
+	foreach ( $ids as $id ) {
+		$attach = wp_get_attachment_image_src( $id, 'thumbnail', false);
+
+		$result["output"] .= '<li><img src="'.$attach[0] .'" /></li>';
+
+	}
+	$result["success"] = true;
+	echo json_encode( $result );
+	exit;
+}
+add_action('wp_ajax_ajax_proof_pixgallery_preview', 'ajax_proof_pixgallery_preview');

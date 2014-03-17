@@ -614,6 +614,26 @@ class pixproof_Meta_Box_types {
 		echo '</div>';
 	}
 
+	public static function gallery($field, $meta, $object_id, $object_type) {
+
+		// include our gallery scripts only when we need them
+		wp_enqueue_media();
+		wp_enqueue_script( 'proof_pixgallery' );
+
+		// ensure the wordpress modal scripts even if an editor is not present
+		wp_enqueue_script( 'jquery-ui-dialog', false, array('jquery'), false, true );
+		wp_localize_script( 'proof_pixgallery', 'locals', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+		// output html
+		echo '<div id="proof_pixgallery">'.
+			'<ul></ul>'.
+			'<a class="open_proof_pixgallery" href="#" class="wp-gallery" >'.
+			'<input type="hidden" name="', $field['id'], '" id="pixgalleries" value="', '' !== $meta ? $meta : $field['default'], '" />'.
+			'<i class="icon"></i>'.
+			'</a>'.
+			'</div>';
+
+	}
+
 	/**
 	 * Deprecated methods. use pixproof_Meta_Box_types::repeat( true/false ) to toggle repeatable
 	 */

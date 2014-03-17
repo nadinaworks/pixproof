@@ -30,55 +30,27 @@ function pixproof_sample_metaboxes( array $meta_boxes ) {
 		// 'pixproof_styles' => true, // Enqueue the CMB stylesheet on the frontend
 		'fields'     => array(
 			array(
-				'name' => __( 'Test Text', 'cmb' ),
-				'desc' => __( 'field description (optional)', 'cmb' ),
-				'id'   => $prefix . 'test_text',
-				'type' => 'text',
+				'name' => __( 'Gallery', 'cmb' ),
+//				'desc' => __( 'field description (optional)', 'cmb' ),
+				'id'   => $prefix . 'main_gallery',
+				'type' => 'gallery',
+				'show_names' => false,
 				// 'sanitization_cb' => 'my_custom_sanitization', // custom sanitization callback parameter
 				// 'escape_cb'       => 'my_custom_escaping',  // custom escaping callback parameter
 				// 'on_front'        => false, // Optionally designate a field to wp-admin only
 				// 'repeatable'      => true,
 			),
 			array(
-				'name' => __( 'Test Text Small', 'cmb' ),
-				'desc' => __( 'field description (optional)', 'cmb' ),
-				'id'   => $prefix . 'test_textsmall',
-				'type' => 'text_small',
-				// 'repeatable' => true,
-			),
-			array(
-				'name' => __( 'Test Text Medium', 'cmb' ),
-				'desc' => __( 'field description (optional)', 'cmb' ),
-				'id'   => $prefix . 'test_textmedium',
-				'type' => 'text_medium',
-				// 'repeatable' => true,
-			),
-			array(
-				'name' => __( 'Website URL', 'cmb' ),
-				'desc' => __( 'field description (optional)', 'cmb' ),
-				'id'   => $prefix . 'url',
-				'type' => 'text_url',
-				// 'protocols' => array('http', 'https', 'ftp', 'ftps', 'mailto', 'news', 'irc', 'gopher', 'nntp', 'feed', 'telnet'), // Array of allowed protocols
-				// 'repeatable' => true,
-			),
-			array(
-				'name' => __( 'Test Text Email', 'cmb' ),
-				'desc' => __( 'field description (optional)', 'cmb' ),
-				'id'   => $prefix . 'email',
-				'type' => 'text_email',
-				// 'repeatable' => true,
+				'name' => __( 'Client Name', 'cmb' ),
+//				'desc' => __( 'field description (optional)', 'cmb' ),
+				'id'   => $prefix . 'text',
+				'type' => 'text',
 			),
 			array(
 				'name' => __( 'Test Time', 'cmb' ),
 				'desc' => __( 'field description (optional)', 'cmb' ),
 				'id'   => $prefix . 'test_time',
 				'type' => 'text_time',
-			),
-			array(
-				'name' => __( 'Time zone', 'cmb' ),
-				'desc' => __( 'Time zone', 'cmb' ),
-				'id'   => $prefix . 'timezone',
-				'type' => 'select_timezone',
 			),
 			array(
 				'name' => __( 'Test Date Picker', 'cmb' ),
@@ -99,30 +71,27 @@ function pixproof_sample_metaboxes( array $meta_boxes ) {
 				'id'   => $prefix . 'test_datetime_timestamp',
 				'type' => 'text_datetime_timestamp',
 			),
-			// This text_datetime_timestamp_timezone field type
-			// is only compatible with PHP versions 5.3 or above.
-			// Feel free to uncomment and use if your server meets the requirement
-			// array(
-			// 	'name' => __( 'Test Date/Time Picker/Time zone Combo (serialized DateTime object)', 'cmb' ),
-			// 	'desc' => __( 'field description (optional)', 'cmb' ),
-			// 	'id'   => $prefix . 'test_datetime_timestamp_timezone',
-			// 	'type' => 'text_datetime_timestamp_timezone',
-			// ),
-//			array(
-//				'name' => __( 'Test Money', 'cmb' ),
-//				'desc' => __( 'field description (optional)', 'cmb' ),
-//				'id'   => $prefix . 'test_textmoney',
-//				'type' => 'text_money',
-//				// 'before'     => '£', // override '$' symbol if needed
-//				// 'repeatable' => true,
-//			),
-//			array(
-//				'name'    => __( 'Test Color Picker', 'cmb' ),
-//				'desc'    => __( 'field description (optional)', 'cmb' ),
-//				'id'      => $prefix . 'test_colorpicker',
-//				'type'    => 'colorpicker',
-//				'default' => '#ffffff'
-//			),
+			array(
+				'name' => __( 'Email', 'cmb' ),
+				'id'   => $prefix . 'email',
+				'type' => 'text_email',
+				'repeatable' => true,
+			),
+			array(
+				'name' => __( 'Test Money', 'cmb' ),
+				'desc' => __( 'field description (optional)', 'cmb' ),
+				'id'   => $prefix . 'test_textmoney',
+				'type' => 'text_money',
+				// 'before'     => '£', // override '$' symbol if needed
+				// 'repeatable' => true,
+			),
+			array(
+				'name'    => __( 'Test Color Picker', 'cmb' ),
+				'desc'    => __( 'field description (optional)', 'cmb' ),
+				'id'      => $prefix . 'test_colorpicker',
+				'type'    => 'colorpicker',
+				'default' => '#ffffff'
+			),
 //			array(
 //				'name' => __( 'Test Text Area', 'cmb' ),
 //				'desc' => __( 'field description (optional)', 'cmb' ),
