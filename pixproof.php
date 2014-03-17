@@ -63,7 +63,7 @@ pixproof::require_all($callbackpath);
 require_once( plugin_dir_path( __FILE__ ) . 'class-pixproof.php' );
 
 // Register hooks that are fired when the plugin is activated, deactivated, and uninstalled, respectively.
-register_activation_hook( __FILE__, array( 'PixTypesPlugin', 'activate' ) );
+register_activation_hook( __FILE__, array( 'PixProofPlugin', 'activate' ) );
 //register_deactivation_hook( __FILE__, array( 'PixTypesPlugin', 'deactivate' ) );
 
 global $pixproof_plugin;

@@ -1,6 +1,6 @@
 <?php
 /**
- * PixTypes.
+ * PixProof.
  *
  * @package   PixProof
  * @author    Pixelgrade <contact@pixelgrade.com>
@@ -12,7 +12,7 @@
 /**
  * Plugin class.
  *
- * @package PixTypes
+ * @package PixProof
  * @author    Pixelgrade <contact@pixelgrade.com>
  */
 class PixProofPlugin {
@@ -98,6 +98,9 @@ class PixProofPlugin {
 		// Load public-facing style sheet and JavaScript.
 //		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 //		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+
+		add_action( 'plugins_loaded', array( $this, 'register_metaboxes'), 14 );
+		add_action( 'init', array( $this, 'register_entities'), 99999);
 
 	}
 
@@ -244,8 +247,8 @@ class PixProofPlugin {
 	function add_plugin_admin_menu() {
 
 		$this->plugin_screen_hook_suffix = add_options_page(
-			__( 'PixTypes', $this->plugin_slug ),
-			__( 'PixTypes', $this->plugin_slug ),
+			__( 'PixProof', $this->plugin_slug ),
+			__( 'PixProof', $this->plugin_slug ),
 			'edit_plugins',
 			$this->plugin_slug,
 			array( $this, 'display_plugin_admin_page' )
@@ -265,6 +268,14 @@ class PixProofPlugin {
 	 */
 	function add_action_links( $links ) {
 		return array_merge( array( 'settings' => '<a href="' . admin_url( 'options-general.php?page=pixproof' ) . '">' . __( 'Settings', $this->plugin_slug ) . '</a>' ), $links );
+	}
+
+	function register_entities(){
+		require_once( $this->plugin_basepath . 'features/custom_post_types.php' );
+	}
+
+	function register_metaboxes(){
+		require_once( $this->plugin_basepath . 'features/metaboxes/metaboxes.php' );
 	}
 
 	/**
