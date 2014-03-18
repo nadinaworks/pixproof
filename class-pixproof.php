@@ -102,6 +102,10 @@ class PixProofPlugin {
 		add_action( 'plugins_loaded', array( $this, 'register_metaboxes'), 14 );
 		add_action( 'init', array( $this, 'register_entities'), 99999);
 
+		// a little hook into the_content
+
+		add_filter('the_content', array($this, 'hook_into_the_content'));
+
 	}
 
 	/**
@@ -278,50 +282,79 @@ class PixProofPlugin {
 		require_once( $this->plugin_basepath . 'features/metaboxes/metaboxes.php' );
 	}
 
-	/**
-	 * Check if this post_type's slug is unique
-	 * @param $slug string
-	 * @return boolean
-	 */
-	static function is_custom_post_type_slug_unique( $slug ){
+	function hook_into_the_content($content){
 
-		global $wp_post_types;
-		$is_unique = true; /** Suppose it's true */
+		$metadata = self::get_metadata();
 
-		foreach ( $wp_post_types as $key => $post_type){
-			$rewrite = $post_type->rewrite;
-			/** if this post_type has a rewrite rule check for it */
-			if ( !empty( $rewrite ) && isset($rewrite["slug"]) && $slug == $rewrite["slug"] ){
-				$is_unique = false;
-			} elseif ( $slug == $key ) { /** the post_type doesn't have a slug param, so the slug is the name itself */
-				$is_unique = false;
-			}
-		}
+		$gallery = self::get_gallery();
 
-		return $is_unique;
+		return $metadata . $gallery . $content;
 	}
 
-	/**
-	 * Check if this taxnonomie's slug is unique
-	 * @param $slug string
-	 * @return boolean
-	 */
-	static function is_tax_slug_unique( $slug ){
+	static function get_gallery( $post_id = NULL ) {
 
-		global $wp_taxonomies;
-		$is_unique = true; /** Suppose it's true */
-
-		foreach ( $wp_taxonomies as $key => $tax){
-			$rewrite = $tax->rewrite;
-			/** if this post_type has a rewrite rule check for it */
-			if ( !empty( $rewrite ) && isset($rewrite["slug"]) && $slug == $rewrite["slug"] ){
-				$is_unique = false;
-			} elseif ( $slug == $key ) { /** the post_type doesn't have a slug param, so the slug is the name itself */
-				$is_unique = false;
-			}
+		if ( $post_id == NULL ) {
+			$post = get_post($post_id);
+			setup_postdata($post);
+		} else {
+			global $post;
 		}
 
-		return $is_unique;
+		$ids_string = get_post_meta( get_the_ID(), '_pixproof_main_gallery', true );
+
+		if ( empty($ids_string ) ) return false;
+
+		$gallery_ids = explode(',',$ids_string);
+
+		if ( empty($gallery_ids) )  return false;
+
+		$attachs = get_posts( array( 'post_status' => 'any', 'post_type' => 'attachment', 'post__in' => $gallery_ids ) );
+
+		if ( is_wp_error($attachs)  || empty($attachs) ) return false;
+
+		$template_name = 'pixproof_gallery'.EXT;
+		$_located = locate_template("templates/". $template_name, false, false);
+
+		// use the default one if the (child) theme doesn't have it
+		if(!$_located) {
+			$_located = dirname(__FILE__).'/views/'. $template_name;
+		}
+
+		ob_start();
+		require_once $_located;
+		wp_reset_postdata();
+		return ob_get_clean();
+	}
+
+	static function get_metadata($post_id = NULL){
+
+		if ( $post_id == NULL ) {
+			$post = get_post($post_id);
+			setup_postdata($post);
+		} else {
+			global $post;
+		}
+
+		$template_name = 'pixproof_metadata'.EXT;
+		$_located = locate_template("templates/". $template_name, false, false);
+
+		// use the default one if the (child) theme doesn't have it
+		if(!$_located) {
+			$_located = dirname(__FILE__).'/views/'. $template_name;
+		}
+
+		$client_name = get_post_meta(get_the_ID(), '_pixproof_client_name', true );
+
+		$event_date = get_post_meta(get_the_ID(), '_pixproof_event_date', true );
+
+//		$number_of_images =
+
+		ob_start();
+
+		require_once $_located;
+		wp_reset_postdata();
+		return ob_get_clean();
+
 	}
 
 }

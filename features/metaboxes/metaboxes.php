@@ -43,28 +43,28 @@ function pixproof_sample_metaboxes( array $meta_boxes ) {
 			array(
 				'name' => __( 'Client Name', 'cmb' ),
 //				'desc' => __( 'field description (optional)', 'cmb' ),
-				'id'   => $prefix . 'text',
+				'id'   => $prefix . 'client_name',
 				'type' => 'text',
 			),
+//			array(
+//				'name' => __( 'Test Time', 'cmb' ),
+////				'desc' => __( 'field description (optional)', 'cmb' ),
+//				'id'   => $prefix . 'test_time',
+//				'type' => 'text_time',
+//			),
 			array(
-				'name' => __( 'Test Time', 'cmb' ),
-				'desc' => __( 'field description (optional)', 'cmb' ),
-				'id'   => $prefix . 'test_time',
-				'type' => 'text_time',
-			),
-			array(
-				'name' => __( 'Test Date Picker', 'cmb' ),
-				'desc' => __( 'field description (optional)', 'cmb' ),
-				'id'   => $prefix . 'test_textdate',
+				'name' => __( 'Date', 'cmb' ),
+//				'desc' => __( 'field description (optional)', 'cmb' ),
+				'id'   => $prefix . 'event_date',
 				'type' => 'text_date',
 			),
-			array(
-				'name' => __( 'Test Date Picker (UNIX timestamp)', 'cmb' ),
-				'desc' => __( 'field description (optional)', 'cmb' ),
-				'id'   => $prefix . 'test_textdate_timestamp',
-				'type' => 'text_date_timestamp',
-				// 'timezone_meta_key' => $prefix . 'timezone', // Optionally make this field honor the timezone selected in the select_timezone specified above
-			),
+//			array(
+//				'name' => __( 'Test Date Picker (UNIX timestamp)', 'cmb' ),
+//				'desc' => __( 'field description (optional)', 'cmb' ),
+//				'id'   => $prefix . 'test_textdate_timestamp',
+//				'type' => 'text_date_timestamp',
+//				// 'timezone_meta_key' => $prefix . 'timezone', // Optionally make this field honor the timezone selected in the select_timezone specified above
+//			),
 			array(
 				'name' => __( 'Test Date/Time Picker Combo (UNIX timestamp)', 'cmb' ),
 				'desc' => __( 'field description (optional)', 'cmb' ),
