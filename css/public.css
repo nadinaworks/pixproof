@@ -1,11 +1,4 @@
 @charset "UTF-8";
-/*-------------------------------------*\
-    STYLE.CSS
-\*------------------------------------*/
-/**
- * Here we the inuit.css framework, then add our
- * project-specific components afterwards.
- */
 /*------------------------------------*\ 
     $SETUP
 \*------------------------------------*/
@@ -4130,4 +4123,4 @@ html.flexbox {
 }
 /* endif */
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=public.css.map */
