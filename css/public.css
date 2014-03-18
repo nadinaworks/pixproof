@@ -4122,5 +4122,111 @@ html.flexbox {
   }
 }
 /* endif */
+.proof-photo {
+  padding: 12px;
+  padding-bottom: 0;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.proof-photo:hover {
+  background: black;
+}
+.proof-photo:hover .proof-photo__id {
+  color: white;
+}
+
+.proof-photo__id {
+  display: block;
+  padding: 12px 0;
+  text-align: center;
+}
+
+.mosaic__item:hover .mosaic__meta {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+.mosaic__item:hover .separator {
+  max-width: 80%;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.mosaic__item .mosaic__item-container {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  color: white;
+}
+
+.mosaic__image {
+  position: relative;
+  padding-top: 100%;
+}
+.mosaic__image.no-image {
+  padding-top: 100%;
+  background: #000000;
+}
+.mosaic__image.no-image + .mosaic__meta {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+.mosaic__image img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mosaic__meta {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.mosaic__meta .flexbox {
+  height: 100%;
+}
+.mosaic__meta .separator {
+  max-width: 0;
+  margin: 0 auto;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.mosaic__hoverdir {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.meta__action {
+  margin: 0;
+  line-height: 1.1;
+  color: white;
+  text-decoration: none !important;
+  text-transform: uppercase;
+}
+
+.separator {
+  background: white;
+}
+
+/*
+ * Responsiveness
+ */
 
 /*# sourceMappingURL=public.css.map */

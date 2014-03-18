@@ -2,12 +2,14 @@
 	"use strict";
 	$(function () {
 
-		$(document).on('click', '.proof_photo', function(ev){
+		$(document).on('click', '.select-action', function(ev){
 
-			$(this).toggleClass('selected');
+			var self = $(this).parents('.proof_photo');
+			console.log(self);
+			$(self).toggleClass('selected');
 
-			var selected = $(this).hasClass('selected'),
-				attachment_id = $(this).data('attachment_id');
+			var selected = $(self).hasClass('selected'),
+				attachment_id = $(self).data('attachment_id');
 
 			$.ajax({ type: "post",url: ajaxurl,data: {
 					action: 'pixproof_image_click',

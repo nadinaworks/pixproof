@@ -239,7 +239,7 @@ class PixProofPlugin {
 	 * @since    1.0.0
 	 */
 	function enqueue_styles() {
-		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'css/style.css', __FILE__ ), array(), $this->version );
+		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'css/public.css', __FILE__ ), array(), $this->version );
 	}
 
 	/**
@@ -351,9 +351,10 @@ class PixProofPlugin {
 
 		$client_name = get_post_meta(get_the_ID(), '_pixproof_client_name', true );
 
-		$event_date = get_post_meta(get_the_ID(), '_pixproof_event_date', true );
+		$client_link = get_post_meta(get_the_ID(), '_pixproof_client_link', true );
 
 		$attachments = get_children( array( 'post_parent' => $post->post_parent, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID' ) );
+		$event_date = get_post_meta(get_the_ID(), '_pixproof_event_date', true );
 		$number_of_images = count( $attachments );
 
 		ob_start();
