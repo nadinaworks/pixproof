@@ -21,7 +21,7 @@ $args = array(
 	'label'               => __( 'proof_gallery', 'pixproof_txtd' ),
 	'description'         => __( 'Private Galleries', 'pixproof_txtd' ),
 	'labels'              => $labels,
-	'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'comments', 'trackbacks', 'revisions', 'page-attributes', 'post-formats', ),
+	'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'comments', 'revisions', 'page-attributes', 'post-formats', ),
 //	'taxonomies'          => array( 'category', 'post_tag' ),
 	'hierarchical'        => true,
 	'public'              => false,
@@ -37,6 +37,7 @@ $args = array(
 	'publicly_queryable'  => true,
 	'query_var'           => 'proof_gallery',
 	'capability_type'     => 'page',
+	'yarpp_support' => false,
 );
 register_post_type( 'proof_gallery', $args );
 
