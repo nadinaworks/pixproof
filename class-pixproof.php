@@ -302,7 +302,7 @@ class PixProofPlugin {
 
 		$ids_string = get_post_meta( get_the_ID(), '_pixproof_main_gallery', true );
 
-		if ( empty($ids_string ) ) return false;
+		if ( empty( $ids_string ) ) return false;
 
 		$gallery_ids = explode(',',$ids_string);
 
