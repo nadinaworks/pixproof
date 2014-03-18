@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 /**
  * Template used to display the pixproof gallery
