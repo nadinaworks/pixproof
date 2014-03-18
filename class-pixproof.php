@@ -97,15 +97,21 @@ class PixProofPlugin {
 
 		// Load public-facing style sheet and JavaScript.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
-//		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 		add_action( 'plugins_loaded', array( $this, 'register_metaboxes'), 14 );
 		add_action( 'init', array( $this, 'register_entities'), 99999);
 
 		// a little hook into the_content
 
-		add_filter('the_content', array($this, 'hook_into_the_content'));
+		add_filter('the_content', array($this, 'hook_into_the_content'), 99999, 1);
 
+
+		/**
+		 * Ajax Callbacks
+		 */
+		add_action('wp_ajax_pixproof_image_click', array(&$this, 'ajax_click_on_photo'));
+		add_action('wp_ajax_nopriv_pixproof_image_click', array(&$this, 'ajax_click_on_photo'));
 	}
 
 	/**
@@ -282,7 +288,9 @@ class PixProofPlugin {
 		require_once( $this->plugin_basepath . 'features/metaboxes/metaboxes.php' );
 	}
 
-	function hook_into_the_content($content){
+	function hook_into_the_content( $content ){
+
+		if ( get_post_type() !== 'proof_gallery' ) return false;
 
 		$metadata = self::get_metadata();
 
@@ -295,10 +303,11 @@ class PixProofPlugin {
 
 		if ( $post_id == NULL ) {
 			$post = get_post($post_id);
-			setup_postdata($post);
 		} else {
 			global $post;
 		}
+
+//		$attachments = get_children( array( 'post_parent' => $post->post_parent, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID' ) );
 
 		$ids_string = get_post_meta( get_the_ID(), '_pixproof_main_gallery', true );
 
@@ -308,10 +317,9 @@ class PixProofPlugin {
 
 		if ( empty($gallery_ids) )  return false;
 
-		$attachs = get_posts( array( 'post_status' => 'any', 'post_type' => 'attachment', 'post__in' => $gallery_ids ) );
-
-		if ( is_wp_error($attachs)  || empty($attachs) ) return false;
-
+		$attachments = get_posts( array( 'post_status' => 'any', 'post_type' => 'attachment', 'post__in' => $gallery_ids ) );
+		if ( is_wp_error($attachments)  || empty($attachments) ) return false;
+		$number_of_images = count( $attachments );
 		$template_name = 'pixproof_gallery'.EXT;
 		$_located = locate_template("templates/". $template_name, false, false);
 
@@ -321,8 +329,7 @@ class PixProofPlugin {
 		}
 
 		ob_start();
-		require_once $_located;
-		wp_reset_postdata();
+		require $_located;
 		return ob_get_clean();
 	}
 
@@ -330,7 +337,6 @@ class PixProofPlugin {
 
 		if ( $post_id == NULL ) {
 			$post = get_post($post_id);
-			setup_postdata($post);
 		} else {
 			global $post;
 		}
@@ -347,13 +353,52 @@ class PixProofPlugin {
 
 		$event_date = get_post_meta(get_the_ID(), '_pixproof_event_date', true );
 
-//		$number_of_images =
+		$attachments = get_children( array( 'post_parent' => $post->post_parent, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID' ) );
+		$number_of_images = count( $attachments );
+
+		ob_start();
+		require $_located;
+		return ob_get_clean();
+
+	}
+
+	static function attachment_class($attachment){
+
+		$data = wp_get_attachment_metadata($attachment->ID);
+
+		if ( isset( $data['selected'] ) && !empty( $data['selected'] ) && $data['selected'] == 'true' ) {
+			echo 'selected';
+		}
+		return false;
+
+	}
+
+	static function attachment_data($attachment){
+
+		$data = wp_get_attachment_metadata($attachment->ID);
+		$output = '';
+
+		$output .= ' data-attachment_id="'.$attachment->ID.'"';
+
+		echo $output;
+	}
+
+	function ajax_click_on_photo(){
 
 		ob_start();
 
-		require_once $_located;
-		wp_reset_postdata();
-		return ob_get_clean();
+		if ( !isset($_POST['attachment_id']) || !isset($_POST['selected']) ) return false;
+		$attachment_id = $_POST['attachment_id'];
+		$selected = $_POST['selected'];
+
+		$data = wp_get_attachment_metadata($attachment_id);
+		$data['selected'] = $selected;
+
+		wp_update_attachment_metadata($attachment_id, $data);
+
+		echo json_encode(ob_get_clean());
+		die();
+
 
 	}
 
