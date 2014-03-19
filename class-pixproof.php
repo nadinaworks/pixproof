@@ -105,9 +105,10 @@ class PixProofPlugin {
 		add_action( 'init', array( $this, 'register_entities'), 99999);
 
 		// a little hook into the_content
-
 		add_filter('the_content', array($this, 'hook_into_the_content'), 99999, 1);
 
+		// parse comments to find referances for images
+		add_filter('comment_text', array($this, 'parse_comments'));
 
 		/**
 		 * Ajax Callbacks
@@ -331,7 +332,7 @@ class PixProofPlugin {
 		}
 
 		// get attachments
-		$attachments = get_posts( array( 'post_status' => 'any', 'post_type' => 'attachment', 'post__in' => $gallery_ids, 'order' => 'ASC', 'orderby' => $order ) );
+		$attachments = get_posts( array( 'post_status' => 'any', 'post_type' => 'attachment', 'post__in' => $gallery_ids, 'order' => 'ASC', 'orderby' => $order, 'posts_per_page' => '-1' ) );
 		if ( is_wp_error($attachments)  || empty($attachments) ) return false;
 		$number_of_images = self::set_number_of_images( count( $attachments ) );
 		$template_name = 'pixproof_gallery'.EXT;
@@ -426,5 +427,23 @@ class PixProofPlugin {
 		echo json_encode(ob_get_clean());
 		die();
 	}
+
+	function parse_comments( $comment = ''){
+
+		global $post;
+		if ( 'proof_gallery' !== $post->post_type ) return $comment;
+
+		$comment = preg_replace_callback('/#*\d+/', 'match_callback', $comment);
+
+		return $comment;
+	}
+
+}
+
+function match_callback( $matches ){
+
+	$matches[0] = '<a class="pixproof_photo_ref" href="'.$matches[0].'">'.$matches[0].'</a>';
+
+	return $matches[0];
 
 }
