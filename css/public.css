@@ -2384,7 +2384,7 @@ html.flexbox {
  * 8. Basic cosmetics for default buttons. Change or override at will.
  * 9. Don’t allow buttons to have underlines; it kinda ruins the illusion.
  */
-.btn, .button-download {
+.btn {
   display: inline-block;
   /* [1] */
   vertical-align: middle;
@@ -2415,7 +2415,7 @@ html.flexbox {
   /* [8] */
 }
 
-.btn, .button-download, .btn:hover, .button-download:hover {
+.btn, .btn:hover {
   text-decoration: none;
   /* [9] */
 }
@@ -2429,7 +2429,7 @@ html.flexbox {
  * These all follow the same sizing rules as above; text is 1em, space around it
  * remains uniform.
  */
-.btn--small, .button-download {
+.btn--small {
   padding-right: 0.5em;
   padding-left: 0.5em;
   line-height: 2;
@@ -4581,8 +4581,6 @@ img.mfp-img {
 .pixproof-data {
   position: relative;
   margin-bottom: 24px;
-  padding-bottom: 12px;
-  border-bottom: 2px dashed black;
 }
 
 .meta-box__title {
@@ -4621,13 +4619,17 @@ img.mfp-img {
   top: 0;
   right: 0;
   z-index: 1;
-  padding: 6px;
+  width: 2em;
+  height: 2em;
   font-size: 0.8em;
+  line-height: 2em;
+  text-align: center;
   background: black;
   color: white;
 }
 .proof-photo .actions-nav {
   margin: 12px 0;
+  padding: 0;
 }
 .proof-photo a {
   color: white;
@@ -4677,6 +4679,10 @@ img.mfp-img {
   text-align: center;
 }
 
+.meta__action--popup {
+  color: white;
+}
+
 .mfp-arrow {
   position: absolute;
   top: 50%;
@@ -4724,8 +4730,9 @@ img.mfp-img {
   color: white;
 }
 
-/*
- * Responsiveness
- */
+.separator--data {
+  background: transparent;
+  border-bottom: 2px dashed black;
+}
 
 /*# sourceMappingURL=public.css.map */

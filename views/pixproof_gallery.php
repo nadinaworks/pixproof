@@ -55,5 +55,6 @@
 				#<?php echo $attachment->ID; ?>
 			</span>            
 		</div>
+		<?php if ($columns == 1) echo '<br style="clear: both">'; ?>
 	<?php } ?>
 </div>
