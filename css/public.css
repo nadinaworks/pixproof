@@ -833,7 +833,7 @@ textarea:focus {
  * Extend the clearfix class with Sass to avoid the `.cf` class appearing over
  * and over in your markup.
  */
-.cf:after, .nav:after, .media:after, .island:after,
+.cf:after, .nav:after, .proof-photo .actions-nav:after, .media:after, .island:after,
 .islet:after, .matrix:after, .multi-list:after, .stat-group:after {
   content: "";
   display: table;
@@ -1919,12 +1919,13 @@ html.flexbox {
  * Demo: jsfiddle.net/inuitcss/Vnph4
  *
  */
-.nav {
+.nav, .proof-photo .actions-nav {
   list-style: none;
   margin-left: 0;
 }
-.nav > li,
-.nav > li > a {
+.nav > li, .proof-photo .actions-nav > li,
+.nav > li > a,
+.proof-photo .actions-nav > li > a {
   display: inline-block;
   *display: inline;
   zoom: 1;
@@ -1941,10 +1942,10 @@ html.flexbox {
    </ul>
  *
  */
-.nav--stacked > li {
+.nav--stacked > li, .proof-photo .actions-nav > li {
   display: list-item;
 }
-.nav--stacked > li > a {
+.nav--stacked > li > a, .proof-photo .actions-nav > li > a {
   display: block;
 }
 
@@ -3695,7 +3696,7 @@ html.flexbox {
   text-align: left  !important;
 }
 
-.text--center {
+.text--center, .proof-photo .actions-nav {
   text-align: center !important;
 }
 
@@ -4123,7 +4124,6 @@ html.flexbox {
 }
 /* endif */
 .proof-photo {
-  padding: 12px;
   padding-bottom: 0;
   -moz-transition: all 0.3s linear;
   -o-transition: all 0.3s linear;
@@ -4131,10 +4131,64 @@ html.flexbox {
   transition: all 0.3s linear;
 }
 .proof-photo:hover {
-  background: black;
+  background: #EEE9E9;
 }
-.proof-photo:hover .proof-photo__id {
+.proof-photo:hover .proof-photo__meta {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+.proof-photo:hover .separator {
+  max-width: 80%;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.proof-photo.selected:before {
+  content: "\2713";
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  padding: 6px;
+  font-size: 0.8em;
+  background: black;
   color: white;
+}
+.proof-photo .actions-nav {
+  margin: 12px 0;
+}
+.proof-photo a {
+  color: white;
+}
+
+.proof-photo__container {
+  position: relative;
+}
+
+.proof-photo__meta {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.proof-photo__meta .flexbox {
+  height: 100%;
+}
+.proof-photo__meta .separator {
+  max-width: 0;
+  margin: 0 auto;
+  background: white;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
 }
 
 .proof-photo__id {
@@ -4143,86 +4197,16 @@ html.flexbox {
   text-align: center;
 }
 
-.mosaic__item:hover .mosaic__meta {
-  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-  opacity: 1;
-  background: rgba(0, 0, 0, 0.5);
-}
-.mosaic__item:hover .separator {
-  max-width: 80%;
-  margin-top: 24px;
-  margin-bottom: 24px;
-}
-.mosaic__item .mosaic__item-container {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  padding: 0;
-  color: white;
-}
-
-.mosaic__image {
-  position: relative;
-  padding-top: 100%;
-}
-.mosaic__image.no-image {
-  padding-top: 100%;
-  background: #000000;
-}
-.mosaic__image.no-image + .mosaic__meta {
-  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-  opacity: 1;
-}
-.mosaic__image img {
-  width: 100%;
-  height: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.mosaic__meta {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  text-align: center;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -moz-transition: all 0.2s;
-  -o-transition: all 0.2s;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-.mosaic__meta .flexbox {
-  height: 100%;
-}
-.mosaic__meta .separator {
-  max-width: 0;
-  margin: 0 auto;
-  -moz-transition: all 0.1s linear;
-  -o-transition: all 0.1s linear;
-  -webkit-transition: all 0.1s linear;
-  transition: all 0.1s linear;
-}
-
-.mosaic__hoverdir {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-
 .meta__action {
   margin: 0;
-  line-height: 1.1;
-  color: white;
+  color: black;
   text-decoration: none !important;
   text-transform: uppercase;
+  text-align: center;
 }
 
-.separator {
-  background: white;
+.meta-box__title {
+  display: block;
 }
 
 /*

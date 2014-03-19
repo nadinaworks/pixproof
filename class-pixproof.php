@@ -309,11 +309,11 @@ class PixProofPlugin {
 
 //		$attachments = get_children( array( 'post_parent' => $post->post_parent, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID' ) );
 
-		$ids_string = get_post_meta( get_the_ID(), '_pixproof_main_gallery', true );
+		$gallery_data = get_post_meta( get_the_ID(), '_pixproof_main_gallery', true );
 
-		if ( empty( $ids_string ) ) return false;
+		if ( empty( $gallery_data ) || ! isset($gallery_data['gallery']) ) return false;
 
-		$gallery_ids = explode(',',$ids_string);
+		$gallery_ids = explode(',',$gallery_data['gallery']);
 
 		if ( empty($gallery_ids) )  return false;
 
@@ -363,16 +363,21 @@ class PixProofPlugin {
 
 	}
 
-	static function attachment_class($attachment){
+	static function get_attachment_class($attachment){
 
 		$data = wp_get_attachment_metadata($attachment->ID);
 
 		if ( isset( $data['selected'] ) && !empty( $data['selected'] ) && $data['selected'] == 'true' ) {
-			echo 'selected';
+			return 'selected';
+		} else {
+			return '';
 		}
-		return false;
-
 	}
+
+	static function attachment_class($attachment){
+		echo self::get_attachment_class($attachment) ;
+	}
+
 
 	static function attachment_data($attachment){
 
