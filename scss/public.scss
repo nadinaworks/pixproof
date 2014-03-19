@@ -6,6 +6,7 @@
 \*------------------------------------*/
 @import "vars";
 @import "inuit.css/inuit";
+@import "magnific-popup/main";
 
 .proof-photo{
     padding-bottom: 0;
@@ -108,6 +109,48 @@
 	position: absolute;
 	right: 0;
 }
+
+.mfp-arrow{
+	position: absolute;
+	top: 50%;
+
+	display: block;
+
+	outline: none;
+	@include transform(translateY(-50%));
+
+	&:hover, &:active, &:focus{
+		background-color: transparent;
+	}
+
+	&:before, &:after{
+		font-size: 7em;
+	}
+}
+
+.mfp-arrow-left{
+	left: 2%;
+
+	&:before{
+		content: '\00ab';
+	}
+}
+
+
+.mfp-arrow-right{
+	right: 2%;
+
+	&:after{
+		content: '\00bb';
+	}
+}
+
+.mfp-counter{
+	font-size: 1em;
+	color: white;
+}
+
+
 
 // .mosaic__item {
 

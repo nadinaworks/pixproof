@@ -36,7 +36,7 @@
 	<?php } ?>
 	--><div class="grid__item  lap-and-up-one-quarter">
             <div class="entry__meta-box">
-                <button class="button-download">Download</button>
+                <button class="button-download  js-download">Download</button>
             </div>					
 		</div><!--				
 	--></div>
