@@ -35,7 +35,7 @@
 						<div class="flexbox__item">
 				            <ul class="actions-nav">
 				            	<li>
-				        			<a class="meta__action  zoom-action" href="#"><?php __('Zoom', 'cmb' ); ?></a>
+				        			<a class="meta__action  zoom-action" href="#"><?php _e('Zoom', 'cmb' ); ?></a>
 				            	</li>
 				            	<li><hr class="separator" /></li>
 				            	<li>
