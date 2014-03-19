@@ -4578,6 +4578,23 @@ img.mfp-img {
   opacity: 0;
 }
 
+.pixproof-data {
+  position: relative;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px dashed black;
+}
+
+.meta-box__title {
+  display: block;
+  font-weight: bold;
+}
+
+.button-download {
+  position: absolute;
+  right: 0;
+}
+
 .proof-photo {
   padding-bottom: 0;
   -moz-transition: all 0.3s linear;
@@ -4660,15 +4677,6 @@ img.mfp-img {
   text-align: center;
 }
 
-.meta-box__title {
-  display: block;
-}
-
-.button-download {
-  position: absolute;
-  right: 0;
-}
-
 .mfp-arrow {
   position: absolute;
   top: 50%;
@@ -4687,18 +4695,28 @@ img.mfp-img {
   font-size: 7em;
 }
 
+.mfp-close {
+  outline: none;
+  padding: 0 24px;
+}
+.mfp-close:hover, .mfp-close:active, .mfp-close:focus {
+  background-color: transparent;
+}
+
 .mfp-arrow-left {
   left: 2%;
 }
 .mfp-arrow-left:before {
-  content: '\00ab';
+  content: '\2329';
+  padding-right: 24px;
 }
 
 .mfp-arrow-right {
   right: 2%;
 }
 .mfp-arrow-right:after {
-  content: '\00bb';
+  content: '\232A';
+  padding-left: 24px;
 }
 
 .mfp-counter {

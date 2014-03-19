@@ -18,10 +18,8 @@
 //	++$i;
 //}
 // <span><?php echo "Image {$specific[$attachment->ID]} of {$number_of_images}"; </span>
-
-var_dump($columns);
 ?>
-<div id="pixproof_gallery" class="gallery  gallery-columns-3  cf  js-post-gallery">
+<div id="pixproof_gallery" class="gallery  gallery-columns-<?php echo $columns; ?>  cf  js-post-gallery">
 	<?php foreach ( $attachments as $attachment ) {
 		if ( 'selected' == self::get_attachment_class($attachment) ) {
 			$select_label = __('Deselect', 'cmb' );

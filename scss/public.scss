@@ -8,6 +8,29 @@
 @import "inuit.css/inuit";
 @import "magnific-popup/main";
 
+
+.pixproof-data{
+	position: relative;
+
+	margin-bottom: $_u;
+	padding-bottom: $_u2;
+	border-bottom: 2px dashed black;
+}
+
+	.meta-box__title{
+		display: block;
+		font-weight: bold;
+	}
+
+	.button-download{
+		@extend .btn;
+		@extend .btn--small;
+
+		position: absolute;
+		right: 0;
+	}
+
+
 .proof-photo{
     padding-bottom: 0;
     @include transition (all .3s linear);
@@ -98,17 +121,6 @@
 	text-align: center;
 }
 
-.meta-box__title{
-	display: block;
-}
-
-.button-download{
-	@extend .btn;
-	@extend .btn--small;
-
-	position: absolute;
-	right: 0;
-}
 
 .mfp-arrow{
 	position: absolute;
@@ -128,11 +140,21 @@
 	}
 }
 
+.mfp-close{
+	outline: none;
+	padding: 0 $_u;
+
+	&:hover, &:active, &:focus{
+		background-color: transparent;
+	}	
+}
+
 .mfp-arrow-left{
 	left: 2%;
 
 	&:before{
-		content: '\00ab';
+		content: '\2329';
+		padding-right: 24px;
 	}
 }
 
@@ -141,7 +163,8 @@
 	right: 2%;
 
 	&:after{
-		content: '\00bb';
+		content: '\232A';
+		padding-left: 24px;
 	}
 }
 
