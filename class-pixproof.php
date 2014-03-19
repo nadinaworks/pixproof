@@ -365,10 +365,9 @@ class PixProofPlugin {
 
 		$client_name = get_post_meta(get_the_ID(), '_pixproof_client_name', true );
 
-		$client_link = get_post_meta(get_the_ID(), '_pixproof_client_link', true );
-
 		$attachments = get_children( array( 'post_parent' => $post->post_parent, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID' ) );
 		$event_date = get_post_meta(get_the_ID(), '_pixproof_event_date', true );
+		$file = get_post_meta(get_the_ID(), '_pixproof_file', true );
 		$number_of_images = self::get_number_of_images();
 
 		ob_start();

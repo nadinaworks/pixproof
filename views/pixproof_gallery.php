@@ -3,7 +3,6 @@
  * Template used to display the pixproof gallery
  *
  * Available vars:
- * string       $ids_string         A string with attachments ids separated by coma
  * array        $gallery_ids        An array with all attachments ids
  * object       $attachments        An object with all the attachments
  * string       $number_of_images   Count attachments
