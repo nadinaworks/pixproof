@@ -18,8 +18,6 @@
 //	++$i;
 //}
 // <span><?php echo "Image {$specific[$attachment->ID]} of {$number_of_images}"; </span>
-
-var_dump($columns);
 ?>
 <div id="pixproof_gallery" class="gallery  gallery-columns-3  cf  js-post-gallery">
 	<?php foreach ( $attachments as $attachment ) {

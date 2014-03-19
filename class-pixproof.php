@@ -69,6 +69,8 @@ class PixProofPlugin {
 
 	protected $config;
 
+	protected static $number_of_images;
+
 	/**
 	 * Initialize the plugin by setting localization, filters, and administration functions.
 	 *
@@ -330,7 +332,7 @@ class PixProofPlugin {
 		// get attachments
 		$attachments = get_posts( array( 'post_status' => 'any', 'post_type' => 'attachment', 'post__in' => $gallery_ids, 'order' => 'ASC', 'orderby' => $order ) );
 		if ( is_wp_error($attachments)  || empty($attachments) ) return false;
-		$number_of_images = count( $attachments );
+		$number_of_images = self::set_number_of_images( count( $attachments ) );
 		$template_name = 'pixproof_gallery'.EXT;
 		$_located = locate_template("templates/". $template_name, false, false);
 
@@ -366,7 +368,7 @@ class PixProofPlugin {
 
 		$attachments = get_children( array( 'post_parent' => $post->post_parent, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID' ) );
 		$event_date = get_post_meta(get_the_ID(), '_pixproof_event_date', true );
-		$number_of_images = count( $attachments );
+		$number_of_images = self::get_number_of_images();
 
 		ob_start();
 		require $_located;
@@ -400,6 +402,14 @@ class PixProofPlugin {
 		echo $output;
 	}
 
+	static function set_number_of_images( $number_of_images ){
+		return self::$number_of_images = $number_of_images;
+	}
+
+	static function get_number_of_images(){
+		return self::$number_of_images ;
+	}
+
 	function ajax_click_on_photo(){
 
 		ob_start();
@@ -415,8 +425,6 @@ class PixProofPlugin {
 
 		echo json_encode(ob_get_clean());
 		die();
-
-
 	}
 
 }
