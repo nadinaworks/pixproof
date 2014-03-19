@@ -8,7 +8,7 @@
  * int          $number_of_images
  */
 ?>
-<div id="pixproof_data" class="push--bottom">
+<div id="pixproof_data" class="pixproof-data">
 	<div class="grid"><!--
 	<?php if ( !empty($client_name)) { ?>
 		--><div class="grid__item  lap-and-up-one-quarter">
@@ -30,7 +30,7 @@
 	--><div class="grid__item  lap-and-up-one-quarter">
             <div class="entry__meta-box">
                 <span class="meta-box__title">Images</span>
-                <span>14</span>
+                <span><?php echo $number_of_images; ?></span>
             </div>					
 		</div><!--
 	<?php } ?>
