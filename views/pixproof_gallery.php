@@ -21,7 +21,7 @@
 
 var_dump($columns);
 ?>
-<div id="pixproof_gallery" class="gallery  gallery-columns-3  cf">
+<div id="pixproof_gallery" class="gallery  gallery-columns-3  cf  js-post-gallery">
 	<?php foreach ( $attachments as $attachment ) {
 		if ( 'selected' == self::get_attachment_class($attachment) ) {
 			$select_label = __('Deselect', 'cmb' );
@@ -29,16 +29,18 @@ var_dump($columns);
 			$select_label = __('Select', 'cmb' );
 		}
 
-        $thumb_img = wp_get_attachment_image_src($attachment->ID); ?>
+        $thumb_img = wp_get_attachment_image_src($attachment->ID);
+		$image_full = wp_get_attachment_image_src($attachment->ID, 'full-size'); ?>
+
 		<div class="proof-photo  js-proof-photo  gallery-item <?php self::attachment_class($attachment); ?>" <?php self::attachment_data($attachment); ?>>
 			<div class="proof-photo__container">
-	            <img src="<?php echo $thumb_img[0]; ?>" alt="<?php echo $attachment->post_title; ?>">
+	            <img src="<?php echo $thumb_img[0]; ?>" alt="<?php echo $attachment->post_title; ?>" />
 				<div class="proof-photo__meta">
 					<div class="flexbox">
 						<div class="flexbox__item">
 				            <ul class="actions-nav">
 				            	<li>
-				        			<a class="meta__action  zoom-action" href="#"><?php _e('Zoom', 'cmb' ); ?></a>
+				        			<a class="meta__action  zoom-action" href="<?php echo $image_full[0]; ?>"><?php _e('Zoom', 'cmb' ); ?></a>
 				            	</li>
 				            	<li><hr class="separator" /></li>
 				            	<li>
