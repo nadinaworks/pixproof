@@ -72,10 +72,13 @@
 
 			bound_reference_links.bound = true;
 
-			$(document).on('click', 'a.pixproof_photo_ref', function() {
-				if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-					var target = $(this.hash);
-					target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			$(document).on('click', 'span.pixproof_photo_ref', function() {
+
+				//if (location.pathname.replace(/^\//,'') == $(this).data('href').replace(/^\//,'') && location.hostname == this.hostname) {
+
+					var target = $($(this).data('href'));
+					target = target.length ? target : $('[name=' + $(this).data('href').slice(1) +']');
+
 					if (target.length) {
 						$('body').animate(
 							{
@@ -88,7 +91,7 @@
 						);
 
 					}
-				}
+				//}
 			});
 
 		}
