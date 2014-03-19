@@ -629,10 +629,10 @@ class pixproof_Meta_Box_types {
 			'<a class="open_proof_pixgallery" href="#" class="wp-gallery" >'.
 			'<input type="hidden" name="', $field['id'], '[gallery]" id="pixgalleries" value="', isset($meta['gallery']) ? $meta['gallery'] : '', '" />'.
 			'<input type="hidden" name="', $field['id'], '[random]" id="pixgalleries_random" value="', isset($meta['random']) ? $meta['random'] : '', '" />'.
+			'<input type="hidden" name="', $field['id'], '[columns]" id="pixgalleries_columns" value="', isset($meta['columns']) ? $meta['columns'] : '', '" />'.
 			'<i class="icon"></i>'.
 			'</a>'.
 			'</div>';
-
 	}
 
 	/**

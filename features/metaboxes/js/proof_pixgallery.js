@@ -33,7 +33,11 @@
 						$('#pixgalleries').val( ids.join(',') );
 
 						if ( gallery.attributes._orderbyRandom ) {
-						    $('#pixgalleries').attr('data-random_order', true);
+							$('#pixgalleries_random').val('true');
+						}
+
+						if ( gallery.attributes.columns ) {
+							$('#pixgalleries_columns').val(gallery.attributes.columns);
 						}
 
 						// update the galllery_preview
@@ -55,9 +59,20 @@
 
 			select: function(){
 				var galleries_ids = $('#pixgalleries').val(),
-					shortcode = wp.shortcode.next( 'gallery', '[gallery ids="'+ galleries_ids +'"]' ),
+					random_order =  $('#pixgalleries_random').val(),
+					columns =  $('#pixgalleries_columns').val(),
 					defaultPostId = wp.media.gallery.defaults.id,
 					attachments, selection;
+
+				if (random_order) {
+					random_order = ' orderby="rand"';
+				}
+
+				if (columns) {
+					columns = ' columns="'+columns+'"';
+				}
+
+				var shortcode = wp.shortcode.next( 'gallery', '[gallery'+columns+' ids="'+ galleries_ids +'"'+ random_order +']' );
 				// Bail if we didn't match the shortcode or all of the content.
 				if ( ! shortcode )
 					return;
@@ -109,7 +124,7 @@
 				$('.open_proof_pixgallery i').removeClass('icon-spin icon-refresh');
 				$('.open_proof_pixgallery i').addClass('icon-camera-retro');
 			}, //stop showing loading when the process is complete
-			success: function( response ){debugger;
+			success: function( response ){
 				var result = JSON.parse(response);
 				if (result.success ) {
 					$('#proof_pixgallery > ul').html(result.output);

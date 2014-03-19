@@ -6,7 +6,8 @@
  * string       $ids_string         A string with attachments ids separated by coma
  * array        $gallery_ids        An array with all attachments ids
  * object       $attachments        An object with all the attachments
- * int          $number_of_images   Count attachments
+ * string       $number_of_images   Count attachments
+ * string       $columns            Number of columns
  */
 
 //$specific = array();
@@ -16,7 +17,9 @@
 //	$specific[$attachment->ID] = $i;
 //	++$i;
 //}
-// 			<span><?php echo "Image {$specific[$attachment->ID]} of {$number_of_images}"; </span>
+// <span><?php echo "Image {$specific[$attachment->ID]} of {$number_of_images}"; </span>
+
+var_dump($columns);
 ?>
 <div id="pixproof_gallery" class="gallery  gallery-columns-3  cf">
 	<?php foreach ( $attachments as $attachment ) {

@@ -301,7 +301,7 @@ class PixProofPlugin {
 	}
 
 	static function get_gallery( $post_id = NULL ) {
-
+		// get teh global $post variable or a specific post
 		if ( $post_id == NULL ) {
 			$post = get_post($post_id);
 		} else {
@@ -309,16 +309,26 @@ class PixProofPlugin {
 		}
 
 //		$attachments = get_children( array( 'post_parent' => $post->post_parent, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID' ) );
-
+		// get this gellery's metadata
 		$gallery_data = get_post_meta( get_the_ID(), '_pixproof_main_gallery', true );
-
+		// quit if there is no gallery data
 		if ( empty( $gallery_data ) || ! isset($gallery_data['gallery']) ) return false;
 
 		$gallery_ids = explode(',',$gallery_data['gallery']);
-
 		if ( empty($gallery_ids) )  return false;
 
-		$attachments = get_posts( array( 'post_status' => 'any', 'post_type' => 'attachment', 'post__in' => $gallery_ids ) );
+		$order = 'menu_order ID';
+		if ( isset($gallery_data['random']) && !empty($gallery_data['random']) ) {
+			$order = $gallery_data['random'];
+		}
+
+		$columns = 3;
+		if ( isset($gallery_data['columns']) && !empty($gallery_data['columns']) ) {
+			$columns = $gallery_data['columns'];
+		}
+
+		// get attachments
+		$attachments = get_posts( array( 'post_status' => 'any', 'post_type' => 'attachment', 'post__in' => $gallery_ids, 'order' => 'ASC', 'orderby' => $order ) );
 		if ( is_wp_error($attachments)  || empty($attachments) ) return false;
 		$number_of_images = count( $attachments );
 		$template_name = 'pixproof_gallery'.EXT;
