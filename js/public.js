@@ -17,7 +17,7 @@
 				jQuery(this).html('Select');
 			}
 
-			$.ajax({ type: "post",url: ajaxurl,data: {
+			$.ajax({ type: "post",url: pixproof.ajaxurl,data: {
 					action: 'pixproof_image_click',
 					attachment_id: attachment_id,
 					selected: selected
