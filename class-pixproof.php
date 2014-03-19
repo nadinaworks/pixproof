@@ -295,9 +295,10 @@ class PixProofPlugin {
 
 		if ( get_post_type() !== 'proof_gallery' ) return false;
 
-		$metadata = self::get_metadata();
-
+		// == This order is important ==
 		$gallery = self::get_gallery();
+		$metadata = self::get_metadata();
+		// == This order is important ==
 
 		return $metadata . $gallery . $content;
 	}
