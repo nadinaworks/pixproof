@@ -14,7 +14,7 @@
 		--><div class="grid__item  lap-and-up-one-quarter">
             <div class="entry__meta-box">
                 <span class="meta-box__title">Client</span>
-                <a href="<?php echo $client_link; ?>" target="_blank"><?php echo $client_name; ?></a>
+                <span><?php echo $client_name; ?></span>
             </div>		
 		</div><!--
 	<?php }
@@ -22,18 +22,18 @@
 	--><div class="grid__item  lap-and-up-one-quarter">
             <div class="entry__meta-box">
                 <span class="meta-box__title">Event date</span>
-                <a href="<?php echo $client_link; ?>" target="_blank"><?php echo $event_date; ?></a>
+                <span><?php echo $event_date; ?></span>
             </div>					
 		</div><!--
 	<?php }
-	if ( !empty($number_of_images)) { ?>
+	//if ( !empty($number_of_images)) { ?>
 	--><div class="grid__item  lap-and-up-one-quarter">
             <div class="entry__meta-box">
-                <span class="meta-box__title">Number of images</span>
-                <a href="<?php echo $client_link; ?>" target="_blank"><?php echo $number_of_images; ?></a>
+                <span class="meta-box__title">Images</span>
+                <span>14</span>
             </div>					
 		</div><!--
-	<?php } ?>
+	<?php //} ?>
 	--><div class="grid__item  lap-and-up-one-quarter">
             <div class="entry__meta-box">
                 <button class="btn  btn--primary  btn--small">Download</button>

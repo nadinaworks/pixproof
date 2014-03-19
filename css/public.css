@@ -1942,10 +1942,10 @@ html.flexbox {
    </ul>
  *
  */
-.nav--stacked > li {
+.nav--stacked > li, .proof-photo .actions-nav > li {
   display: list-item;
 }
-.nav--stacked > li > a {
+.nav--stacked > li > a, .proof-photo .actions-nav > li > a {
   display: block;
 }
 
@@ -2006,14 +2006,14 @@ html.flexbox {
  *
  * Thanks to @pimpl for this idea!
  */
-.nav--fit, .proof-photo .actions-nav {
+.nav--fit {
   display: table;
   width: 100%;
 }
-.nav--fit > li, .proof-photo .actions-nav > li {
+.nav--fit > li {
   display: table-cell;
 }
-.nav--fit > li > a, .proof-photo .actions-nav > li > a {
+.nav--fit > li > a {
   display: block;
 }
 
@@ -4129,23 +4129,66 @@ html.flexbox {
   -o-transition: all 0.3s linear;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
-  position: relative;
 }
 .proof-photo:hover {
   background: #EEE9E9;
 }
-.proof-photo .actions-nav {
-  margin: 12px 0;
+.proof-photo:hover .proof-photo__meta {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+.proof-photo:hover .separator {
+  max-width: 80%;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 .proof-photo.selected:before {
   content: "\2713";
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 1;
   padding: 6px;
   font-size: 0.8em;
   background: black;
   color: white;
+}
+.proof-photo .actions-nav {
+  margin: 12px 0;
+}
+.proof-photo a {
+  color: white;
+}
+
+.proof-photo__container {
+  position: relative;
+}
+
+.proof-photo__meta {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.proof-photo__meta .flexbox {
+  height: 100%;
+}
+.proof-photo__meta .separator {
+  max-width: 0;
+  margin: 0 auto;
+  background: white;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
 }
 
 .proof-photo__id {
@@ -4160,6 +4203,10 @@ html.flexbox {
   text-decoration: none !important;
   text-transform: uppercase;
   text-align: center;
+}
+
+.meta-box__title {
+  display: block;
 }
 
 /*

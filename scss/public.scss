@@ -10,17 +10,19 @@
 .proof-photo{
     padding-bottom: 0;
     @include transition (all .3s linear);
-    position: relative;
 
 	&:hover{
 		background: #EEE9E9;
-	}
 
-	.actions-nav{
-		@extend .nav;
-		@extend .nav--fit;
-		@extend .text--center;
-		margin: $_u2 0;
+	    .proof-photo__meta{
+	        @include opacity(1);
+	        background: rgba(0, 0, 0, 0.5);
+	    }
+	    .separator {
+	        max-width:80%;
+	        margin-top:$_u2;
+	        margin-bottom:$_u2;
+	    }		
 	}
 
 	&.selected:before{
@@ -29,6 +31,7 @@
 		position: absolute;
 		top: 0;
 		right: 0;
+		z-index: 1;
 
 		padding: $_u2/2;
 
@@ -37,7 +40,47 @@
 		background: black;
 		color: white;
 	}
+
+	.actions-nav{
+		@extend .nav;
+		@extend .nav--stacked;
+		@extend .text--center;
+		margin: $_u2 0;
+	}
+
+	a{
+		color: white;
+	}
+
 }
+
+	.proof-photo__container{
+		position: relative;		
+	}
+
+	.proof-photo__meta{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+
+		@include opacity(0);
+		@include transition(all .2s linear);
+
+		.flexbox{
+			height: 100%;
+		}
+
+        .separator {
+            max-width: 0;
+            margin: 0 auto;
+
+			background: white;
+
+            @include transition(all 0.1s linear);
+        }		
+	}
 
 .proof-photo__id{
 	display: block;
@@ -52,6 +95,10 @@
 	text-decoration: none !important;
 	text-transform: uppercase;
 	text-align: center;
+}
+
+.meta-box__title{
+	display: block;
 }
 
 // .mosaic__item {
