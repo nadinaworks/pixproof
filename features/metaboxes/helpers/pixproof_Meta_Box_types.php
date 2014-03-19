@@ -627,7 +627,8 @@ class pixproof_Meta_Box_types {
 		echo '<div id="proof_pixgallery">'.
 			'<ul></ul>'.
 			'<a class="open_proof_pixgallery" href="#" class="wp-gallery" >'.
-			'<input type="hidden" name="', $field['id'], '" id="pixgalleries" value="', '' !== $meta ? $meta : $field['default'], '" />'.
+			'<input type="hidden" name="', $field['id'], '[gallery]" id="pixgalleries" value="', isset($meta['gallery']) ? $meta['gallery'] : '', '" />'.
+			'<input type="hidden" name="', $field['id'], '[random]" id="pixgalleries_random" value="', isset($meta['random']) ? $meta['random'] : '', '" />'.
 			'<i class="icon"></i>'.
 			'</a>'.
 			'</div>';

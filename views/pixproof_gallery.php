@@ -29,7 +29,7 @@ foreach ( $attachments as $attachment ) {
         }
 
 		?>
-		<div class="proof-photo  mosaic__item">
+		<div class="js-proof-photo  mosaic__item <?php self::attachment_class($attachment); ?>" <?php self::attachment_data($attachment); ?>>
             <div class="mosaic__item-container">
                 <div class="mosaic__image" style="padding-top: <?php echo $thumb_img_ratio; ?>%">
                     <img src="<?php echo $attachment->guid ?>" alt="<?php echo $attachment->post_title; ?>">

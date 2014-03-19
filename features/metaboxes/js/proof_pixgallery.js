@@ -27,9 +27,14 @@
 						var controller = wp.media.EditPixGallery._frame.states.get('gallery-edit');
 						var library = controller.get('library');
 						// Need to get all the attachment ids for gallery
-						var ids = library.pluck('id');
+						var ids = library.pluck('id'),
+							gallery = library.gallery;
 
 						$('#pixgalleries').val( ids.join(',') );
+
+						if ( gallery.attributes._orderbyRandom ) {
+						    $('#pixgalleries').attr('data-random_order', true);
+						}
 
 						// update the galllery_preview
 						proof_pixgallery_ajax_preview();

@@ -4,12 +4,12 @@
 
 		$(document).on('click', '.select-action', function(ev){
 
-			var self = $(this).parents('.proof_photo');
-			console.log(self);
-			$(self).toggleClass('selected');
+			var photo = $(this).parents('.js-proof-photo');
 
-			var selected = $(self).hasClass('selected'),
-				attachment_id = $(self).data('attachment_id');
+			$(photo).toggleClass('selected');
+
+			var selected = $(photo).hasClass('selected'),
+				attachment_id = $(photo).data('attachment_id');
 
 			$.ajax({ type: "post",url: ajaxurl,data: {
 					action: 'pixproof_image_click',
