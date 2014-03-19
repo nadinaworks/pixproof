@@ -2384,7 +2384,7 @@ html.flexbox {
  * 8. Basic cosmetics for default buttons. Change or override at will.
  * 9. Don’t allow buttons to have underlines; it kinda ruins the illusion.
  */
-.btn {
+.btn, .button-download {
   display: inline-block;
   /* [1] */
   vertical-align: middle;
@@ -2415,7 +2415,7 @@ html.flexbox {
   /* [8] */
 }
 
-.btn, .btn:hover {
+.btn, .button-download, .btn:hover, .button-download:hover {
   text-decoration: none;
   /* [9] */
 }
@@ -2429,7 +2429,7 @@ html.flexbox {
  * These all follow the same sizing rules as above; text is 1em, space around it
  * remains uniform.
  */
-.btn--small {
+.btn--small, .button-download {
   padding-right: 0.5em;
   padding-left: 0.5em;
   line-height: 2;
@@ -4207,6 +4207,11 @@ html.flexbox {
 
 .meta-box__title {
   display: block;
+}
+
+.button-download {
+  position: absolute;
+  right: 0;
 }
 
 /*

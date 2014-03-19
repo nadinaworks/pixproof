@@ -101,6 +101,14 @@
 	display: block;
 }
 
+.button-download{
+	@extend .btn;
+	@extend .btn--small;
+
+	position: absolute;
+	right: 0;
+}
+
 // .mosaic__item {
 
 //     // border:$_u4 solid transparent;
