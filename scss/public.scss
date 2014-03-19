@@ -8,16 +8,34 @@
 @import "inuit.css/inuit";
 
 .proof-photo{
-	padding: $_u2;
     padding-bottom: 0;
     @include transition (all .3s linear);
+    position: relative;
 
 	&:hover{
-		background: black;
+		background: #EEE9E9;
+	}
 
-		.proof-photo__id{
-			color: white;
-		}
+	.actions-nav{
+		@extend .nav;
+		@extend .nav--fit;
+		@extend .text--center;
+		margin: $_u2 0;
+	}
+
+	&.selected:before{
+		content: "\2713";
+		
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		padding: $_u2/2;
+
+		font-size: 0.8em;
+
+		background: black;
+		color: white;
 	}
 }
 
@@ -28,95 +46,95 @@
 	text-align: center;
 }
 
-.mosaic__item {
-
-    // border:$_u4 solid transparent;
-    // float:left;
-
-    &:hover{
-        .mosaic__meta{
-            @include opacity(1);
-            background: rgba(0, 0, 0, 0.5);
-        }
-        .separator {
-            max-width:80%;
-            margin-top:$_u;
-            margin-bottom:$_u;
-        }
-    }    
-
-    .mosaic__item-container {
-        position: relative;
-        display: block;
-        overflow: hidden;
-        padding: 0; 
-        color: white;
-    }
+.meta__action {
+	margin: 0;
+	color: black;
+	text-decoration: none !important;
+	text-transform: uppercase;
+	text-align: center;
 }
 
-    .mosaic__image {
-        position: relative;
-        padding-top: 100%;
+// .mosaic__item {
 
-        &.no-image{
-            padding-top: 100%;
-            background: #000000;
-        }
+//     // border:$_u4 solid transparent;
+//     // float:left;
 
-        &.no-image + .mosaic__meta{
-            @include opacity(1);
-        }
+//     &:hover{
+//         .mosaic__meta{
+//             @include opacity(1);
+//             background: rgba(0, 0, 0, 0.5);
+//         }
+//         .separator {
+//             max-width:80%;
+//             margin-top:$_u;
+//             margin-bottom:$_u;
+//         }
+//     }    
 
-        img {
-            width: 100%;
-            height: auto;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-    }
+//     .mosaic__item-container {
+//         position: relative;
+//         display: block;
+//         overflow: hidden;
+//         padding: 0; 
+//         color: white;
+//     }
+// }
 
-    .mosaic__meta {
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        text-align: center;
-        // z-index: 1;
+//     .mosaic__image {
+//         position: relative;
+//         padding-top: 100%;
 
-        @include opacity(0);
-        @include transition(all 0.2s);
+//         &.no-image{
+//             padding-top: 100%;
+//             background: #000000;
+//         }
 
-        .flexbox {
-            height:100%;
-        }
+//         &.no-image + .mosaic__meta{
+//             @include opacity(1);
+//         }
 
-        .separator {
-            max-width: 0;
-            margin: 0 auto;
-            @include transition(all 0.1s linear)
-        }
-    }
+//         img {
+//             width: 100%;
+//             height: auto;
+//             position: absolute;
+//             top: 0;
+//             left: 0;
+//         }
+//     }
 
-    // Container used for direction-aware hover
-    .mosaic__hoverdir {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-    }
+//     .mosaic__meta {
+//         position: absolute;
+//         left: 0;
+//         top: 0;
+//         right: 0;
+//         bottom: 0;
+//         text-align: center;
+//         // z-index: 1;
 
-        .meta__action {
-            margin:0;
-            line-height:1.1;
-            color: white;
-            text-decoration: none !important;
-            text-transform: uppercase;
-        }
+//         @include opacity(0);
+//         @include transition(all 0.2s);
 
-.separator{
-    background: white;
-}
+//         .flexbox {
+//             height:100%;
+//         }
+
+//         .separator {
+//             max-width: 0;
+//             margin: 0 auto;
+//             @include transition(all 0.1s linear)
+//         }
+//     }
+
+//     // Container used for direction-aware hover
+//     .mosaic__hoverdir {
+//         position: absolute;
+//         height: 100%;
+//         width: 100%;
+//     }
+
+// .separator{
+//     background: white;
+// }
 
 /*
  * Responsiveness
