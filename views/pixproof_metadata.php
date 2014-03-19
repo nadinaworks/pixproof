@@ -45,5 +45,6 @@
 	--></div>
 	<?php } ?>
 </div>
+<hr class="separator  separator--data" />
 
 <?php
