@@ -442,7 +442,8 @@ class PixProofPlugin {
 
 function match_callback( $matches ){
 
-	$matches[0] = '<a class="pixproof_photo_ref" href="'.$matches[0].'">'.$matches[0].'</a>';
+	$the_id = substr($matches[0], 1);
+	$matches[0] = '<a class="pixproof_photo_ref" href="#item-'.$the_id.'">#'.$the_id.'</a>';
 
 	return $matches[0];
 
