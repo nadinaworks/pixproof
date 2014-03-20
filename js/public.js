@@ -9,6 +9,8 @@
 
 		$(document).on('click', '.select-action', function(ev){
 			ev.preventDefault();
+			ev.stopPropagation();
+			
 			var photo = $('#item-' + $(this).data('photoid'));
 
 			$(photo).toggleClass('selected');
