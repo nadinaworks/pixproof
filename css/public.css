@@ -149,6 +149,14 @@
   color: white;
 }
 
+.pixproof_photo_ref {
+  padding: 3px 6px;
+  margin: 0 3px;
+  color: white;
+  background: black;
+  cursor: pointer;
+}
+
 .mfp-arrow {
   position: absolute;
   top: 50%;
