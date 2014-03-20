@@ -44,17 +44,18 @@
   font-weight: bold;
 }
 
-.button-download {
-  position: absolute;
-  right: 0;
+@media screen and (min-width: 899px) {
+  .button-download {
+    position: absolute;
+    right: 0;
+  }
 }
-
 .proof-photo {
   padding-bottom: 0;
-  -moz-transition: all 0.3s linear;
-  -o-transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
-  transition: all 0.3s linear;
+  -moz-transition: all 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+  -o-transition: all 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+  -webkit-transition: all 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 0.3s cubic-bezier(0.86, 0, 0.07, 1);
 }
 .proof-photo:hover {
   background: #EEE9E9;
@@ -89,7 +90,7 @@
   -o-transform: scale(1.2, 1.2);
   -webkit-transform: scale(1.2, 1.2);
   transform: scale(1.2, 1.2);
-  z-index: 1;
+  z-index: 50;
 }
 .proof-photo a {
   color: white;
