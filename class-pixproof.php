@@ -240,7 +240,12 @@ class PixProofPlugin {
 	 * @since    1.0.0
 	 */
 	function enqueue_styles() {
-		wp_enqueue_style( 'wpgrade-main-style', plugins_url( 'css/inuit.css', __FILE__ ), array(), $this->version );
+
+		if ( !wp_style_is( 'wpgrade-main-style') ) {
+			wp_enqueue_style( 'pixproof_inuit', plugins_url( 'css/inuit.css', __FILE__ ), array(), $this->version );
+			wp_enqueue_style( 'pixproof_magnific-popup', plugins_url( 'css/mangnific-popup.css', __FILE__ ), array(), $this->version );
+		}
+
 //		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'css/public.css', __FILE__ ), array('wpgrade-main-style'), $this->version );
 	}
 
@@ -294,13 +299,22 @@ class PixProofPlugin {
 	function hook_into_the_content( $content ){
 
 		if ( get_post_type() !== 'proof_gallery' ) return false;
-
+		$style = '';
 		// == This order is important ==
+		$pixproof_path = self::get_base_path();
+		if ( file_exists( $pixproof_path . 'css/public.css' ) ) {
+			ob_start();
+			echo '<style>';
+			include($pixproof_path . 'css/public.css');
+			echo '</style>';
+			$style = ob_get_clean();
+		}
+
 		$gallery = self::get_gallery();
 		$metadata = self::get_metadata();
 		// == This order is important ==
 
-		return $metadata . $gallery . $content;
+		return $style . $metadata . $gallery . $content;
 	}
 
 	static function get_gallery( $post_id = NULL ) {
@@ -336,8 +350,6 @@ class PixProofPlugin {
 		$number_of_images = self::set_number_of_images( count( $attachments ) );
 		$template_name = 'pixproof_gallery'.EXT;
 		$_located = locate_template("templates/". $template_name, false, false);
-
-		$pixproof_path = self::get_base_path();
 
 		// use the default one if the (child) theme doesn't have it
 		if(!$_located) {

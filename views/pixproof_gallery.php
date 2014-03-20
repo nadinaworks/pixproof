@@ -20,11 +20,7 @@
 ?>
 <div id="pixproof_gallery" class="gallery  gallery-columns-<?php echo $columns; ?>  cf  js-pixproof-gallery">
 	<?php
-	if ( file_exists( $pixproof_path . 'css/public.css' ) ) {
-		echo '<style>';
-		include($pixproof_path . 'css/public.css');
-		echo '</style>';
-	}
+
 	foreach ( $attachments as $attachment ) {
 	if ( 'selected' == self::get_attachment_class($attachment) ) {
 		$select_label = __('Deselect', 'cmb' );
