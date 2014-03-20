@@ -1,35 +1,658 @@
+@charset "UTF-8";
+/*------------------------------------*\ 
+    $SETUP
+\*------------------------------------*/
+/*------------------------------------*\
+    VARS.SCSS
+\*------------------------------------*/
+/**
+ * Any variables you find set in inuit.css’ `_vars.scss` that you do not wish to
+ * keep, simply redefine here. This means that if inuit.css, for example, sets
+ * your `$base-font-size` at 16px and you wish it to be 14px, simply redeclare
+ * that variable in this file. inuit.css ignores its own variables in favour of
+ * using your own, so you can completely modify how inuit.css works without ever
+ * having to alter the framework itself.
+ */
+/*------------------------------------*\
+    $OBJECTS-AND-ABSTRACTIONS
+\*------------------------------------*/
+/**
+ * All of inuit.css’ objects and abstractions are initially turned off by
+ * default. This means that you start any project with as little as possible,
+ * and introducing objects and abstractions is as simple as switching the
+ * following variables to `true`.
+ */
+/*-----------------------------------------------*\
+     $STYLE GUIDE
+\*-----------------------------------------------*/
+/*-------------------------------------*\
+               ICON FONTS
+\*-------------------------------------*/
 /*
-Sass::SyntaxError: ".proof-photo .actions-nav" failed to @extend ".text--center".
-The selector ".text--center" was not found.
-Use "@extend .text--center !optional" if the extend should be able to fail.
+ * Colors
+ */
+/*
+ * Spacing Units
+ */
+/* Magnific Popup CSS */
+.mfp-bg {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1042;
+  overflow: hidden;
+  position: fixed;
+  background: #0b0b0b;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
 
+.mfp-wrap {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1043;
+  position: fixed;
+  outline: none !important;
+  -webkit-backface-visibility: hidden;
+}
 
-Backtrace:
-scss/public.scss:76
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/extend.rb:65:in `block in check_extends_fired!'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/sass-3.3.0.rc.2/lib/sass/util/subset_map.rb:106:in `block in each_value'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/sass-3.3.0.rc.2/lib/sass/util/subset_map.rb:106:in `each'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/sass-3.3.0.rc.2/lib/sass/util/subset_map.rb:106:in `each_value'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/extend.rb:50:in `check_extends_fired!'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/sass-3.3.0.rc.2/lib/sass/tree/visitors/extend.rb:16:in `visit'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/sass-3.3.0.rc.2/lib/sass/tree/root_node.rb:39:in `css_tree'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/sass-3.3.0.rc.2/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/sass-3.3.0.rc.2/lib/sass/engine.rb:364:in `_render_with_sourcemap'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/sass-3.3.0.rc.2/lib/sass/engine.rb:292:in `render_with_sourcemap'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/sass-3.3.0.rc.2/lib/sass/plugin/compiler.rb:345:in `update_stylesheet'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/sass-3.3.0.rc.2/lib/sass/plugin/compiler.rb:191:in `block in update_stylesheets'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/sass-3.3.0.rc.2/lib/sass/plugin/compiler.rb:188:in `each'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/sass-3.3.0.rc.2/lib/sass/plugin/compiler.rb:188:in `update_stylesheets'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/sass-3.3.0.rc.2/lib/sass/plugin/compiler.rb:276:in `block in watch'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/listen-1.1.6/lib/listen/listener.rb:236:in `call'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/listen-1.1.6/lib/listen/listener.rb:236:in `on_change'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/listen-1.1.6/lib/listen/listener.rb:271:in `block in initialize_adapter'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/listen-1.1.6/lib/listen/adapter.rb:244:in `call'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/listen-1.1.6/lib/listen/adapter.rb:244:in `report_changes'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/listen-1.1.6/lib/listen/adapter.rb:313:in `poll_changed_directories'
-/Users/cristianfrumusanu/.rbenv/versions/1.9.3-p194/lib/ruby/gems/1.9.1/gems/listen-1.1.6/lib/listen/adapter.rb:289:in `block in start_poller'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Sass::SyntaxError: \".proof-photo .actions-nav\" failed to @extend \".text--center\".\A The selector \".text--center\" was not found.\A Use \"@extend .text--center !optional\" if the extend should be able to fail.\A "; }
+.mfp-container {
+  text-align: center;
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 8px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.mfp-container:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.mfp-align-top .mfp-container:before {
+  display: none;
+}
+
+.mfp-content {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 auto;
+  text-align: left;
+  z-index: 1045;
+}
+
+.mfp-inline-holder .mfp-content,
+.mfp-ajax-holder .mfp-content {
+  width: 100%;
+  cursor: auto;
+}
+
+.mfp-ajax-cur {
+  cursor: progress;
+}
+
+.mfp-zoom-out-cur,
+.mfp-zoom-out-cur .mfp-image-holder .mfp-close {
+  cursor: -moz-zoom-out;
+  cursor: -webkit-zoom-out;
+  cursor: zoom-out;
+}
+
+.mfp-zoom {
+  cursor: pointer;
+  cursor: -webkit-zoom-in;
+  cursor: -moz-zoom-in;
+  cursor: zoom-in;
+}
+
+.mfp-auto-cursor .mfp-content {
+  cursor: auto;
+}
+
+.mfp-close,
+.mfp-arrow,
+.mfp-preloader,
+.mfp-counter {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.mfp-loading.mfp-figure {
+  display: none;
+}
+
+.mfp-hide {
+  display: none !important;
+}
+
+.mfp-preloader {
+  color: #cccccc;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  text-align: center;
+  margin-top: -0.8em;
+  left: 8px;
+  right: 8px;
+  z-index: 1044;
+}
+
+.mfp-preloader a {
+  color: #cccccc;
+}
+
+.mfp-preloader a:hover {
+  color: white;
+}
+
+.mfp-s-ready .mfp-preloader {
+  display: none;
+}
+
+.mfp-s-error .mfp-content {
+  display: none;
+}
+
+button.mfp-close,
+button.mfp-arrow {
+  overflow: visible;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  display: block;
+  padding: 0;
+  z-index: 1046;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+.mfp-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-decoration: none;
+  text-align: center;
+  opacity: 0.65;
+  padding: 0 0 18px 10px;
+  color: white;
+  outline: 0;
+  font-style: normal;
+  font-size: 28px;
+}
+.mfp-close:hover, .mfp-close:focus {
+  opacity: 1;
+}
+
+.mfp-counter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #cccccc;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.mfp-iframe-holder {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.mfp-iframe-holder .mfp-content {
+  line-height: 0;
+  width: 100%;
+}
+
+.mfp-iframe-scaler {
+  overflow: hidden;
+}
+
+.mfp-iframe-scaler iframe {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  background: black;
+}
+
+/* Main image in popup */
+img.mfp-img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  line-height: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 40px 0 40px;
+  margin: 0 auto;
+}
+
+/* The shadow behind the image */
+.mfp-figure:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 40px;
+  bottom: 40px;
+  display: block;
+  right: 0;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+  background: #444444;
+}
+
+.mfp-figure {
+  line-height: 0;
+}
+
+.mfp-bottom-bar {
+  margin-top: -36px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  cursor: auto;
+}
+
+.mfp-title {
+  margin-top: 19px;
+  margin-top: 1.2rem;
+  text-align: left;
+  color: #f3f3f3;
+  word-wrap: break-word;
+}
+
+.mfp-figure small {
+  color: #bdbdbd;
+  display: block;
+}
+
+.mfp-image-holder .mfp-content {
+  max-width: 100%;
+}
+
+.mfp-gallery .mfp-image-holder .mfp-figure {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) and (orientation: landscape), screen and (max-height: 300px) {
+  /**
+   * Remove all paddings around the image on small screen
+   */
+  .mfp-img-mobile .mfp-image-holder {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .mfp-img-mobile img.mfp-img {
+    padding: 0;
+  }
+
+  /* The shadow behind the image */
+  .mfp-img-mobile .mfp-figure:after {
+    top: 0;
+    bottom: 0;
+  }
+
+  .mfp-img-mobile .mfp-bottom-bar {
+    background: rgba(0, 0, 0, 0.6);
+    bottom: 0;
+    margin: 0;
+    top: auto;
+    padding: 3px 5px;
+    position: fixed;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .mfp-img-mobile .mfp-bottom-bar:empty {
+    padding: 0;
+  }
+
+  .mfp-img-mobile .mfp-counter {
+    right: 5px;
+    top: 3px;
+  }
+
+  .mfp-img-mobile .mfp-close {
+    top: 0;
+    right: 0;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    text-align: center;
+    padding: 0;
+  }
+
+  .mfp-img-mobile .mfp-figure small {
+    display: inline;
+    margin-left: 5px;
+  }
+}
+@media all and (max-width: 900px) {
+  .mfp-arrow {
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+  }
+
+  .mfp-arrow-left {
+    -webkit-transform-origin: 0;
+    transform-origin: 0;
+  }
+
+  .mfp-arrow-right {
+    -webkit-transform-origin: 100%;
+    transform-origin: 100%;
+  }
+
+  .mfp-container {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+}
+.mfp-ie7 .mfp-img {
+  padding: 0;
+}
+.mfp-ie7 .mfp-bottom-bar {
+  width: 600px;
+  left: 50%;
+  margin-left: -300px;
+  margin-top: 5px;
+  padding-bottom: 5px;
+}
+.mfp-ie7 .mfp-container {
+  padding: 0;
+}
+.mfp-ie7 .mfp-content {
+  padding-top: 44px;
+}
+.mfp-ie7 .mfp-close {
+  top: 0;
+  right: 0;
+  padding-top: 0;
+}
+
+/*----------------------------------------*\
+    $ANIMATIONS / $TRANSITIONS
+\*----------------------------------------*/
+.mfp-zoom-in {
+  /* start state */
+  /* animate in */
+  /* animate out */
+}
+.mfp-zoom-in .mfp-with-anim {
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  transform: scale(0.8);
+}
+.mfp-zoom-in.mfp-bg {
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+.mfp-zoom-in.mfp-ready .mfp-with-anim {
+  opacity: 1;
+  transform: scale(1);
+}
+.mfp-zoom-in.mfp-ready.mfp-bg {
+  opacity: 0.8;
+}
+.mfp-zoom-in.mfp-removing .mfp-with-anim {
+  transform: scale(0.8);
+  opacity: 0;
+}
+.mfp-zoom-in.mfp-removing.mfp-bg {
+  opacity: 0;
+}
+
+/* overlay at start */
+/* overlay animate in */
+.mfp-fade.mfp-bg.mfp-ready {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+}
+
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing {
+  -moz-transition: all 0.2s 0.1s ease-in-out;
+  -o-transition: all 0.2s 0.1s ease-in-out;
+  -webkit-transition: all 0.2s 0.1s;
+  -webkit-transition-delay: ease-in-out;
+  transition: all 0.2s 0.1s ease-in-out;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content {
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-perspective: 1000px;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -moz-transition: all 0.2s 0.1s ease-in-out;
+  -o-transition: all 0.2s 0.1s ease-in-out;
+  -webkit-transition: all 0.2s 0.1s;
+  -webkit-transition-delay: ease-in-out;
+  transition: all 0.2s 0.1s ease-in-out;
+}
+
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+}
+
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+
+.pixproof-data {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.meta-box__title {
+  display: block;
+  font-weight: bold;
+}
+
+.button-download {
+  position: absolute;
+  right: 0;
+}
+
+.proof-photo {
+  padding-bottom: 0;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+.proof-photo:hover {
+  background: #EEE9E9;
+}
+.proof-photo:hover .proof-photo__meta {
+  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+.proof-photo:hover .separator {
+  max-width: 80%;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.proof-photo.selected:before {
+  content: "\2713";
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 2em;
+  height: 2em;
+  font-size: 0.8em;
+  line-height: 2em;
+  text-align: center;
+  background: black;
+  color: white;
+}
+.proof-photo.scrooled_from_comments {
+  -moz-transform: scale(1.2, 1.2);
+  -ms-transform: scale(1.2, 1.2);
+  -o-transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+  z-index: 1;
+}
+.proof-photo a {
+  color: white;
+}
+.proof-photo .actions-nav {
+  text-align: center;
+  margin: 12px 0;
+  padding: 0;
+}
+
+.proof-photo__container {
+  position: relative;
+}
+
+.proof-photo__meta {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.proof-photo__meta .flexbox {
+  height: 100%;
+}
+.proof-photo__meta .separator {
+  max-width: 0;
+  margin: 0 auto;
+  background: white;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+.proof-photo__id {
+  display: block;
+  padding: 12px 0;
+  text-align: center;
+}
+
+.meta__action {
+  margin: 0;
+  color: black;
+  text-decoration: none !important;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.meta__action--popup {
+  color: white;
+}
+
+.mfp-arrow {
+  position: absolute;
+  top: 50%;
+  display: block;
+  outline: none;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.mfp-arrow:hover, .mfp-arrow:active, .mfp-arrow:focus {
+  background-color: transparent;
+}
+.mfp-arrow:before, .mfp-arrow:after {
+  font-size: 7em;
+}
+
+.mfp-close {
+  outline: none;
+  padding: 0 24px;
+}
+.mfp-close:hover, .mfp-close:active, .mfp-close:focus {
+  background-color: transparent;
+}
+
+.mfp-arrow-left {
+  left: 2%;
+}
+.mfp-arrow-left:before {
+  content: '\2329';
+  padding-right: 24px;
+}
+
+.mfp-arrow-right {
+  right: 2%;
+}
+.mfp-arrow-right:after {
+  content: '\232A';
+  padding-left: 24px;
+}
+
+.mfp-counter {
+  font-size: 1em;
+  color: white;
+}
+
+.separator--data {
+  background: transparent;
+  border-bottom: 2px dashed black;
+}
+
+/*# sourceMappingURL=public.css.map */
