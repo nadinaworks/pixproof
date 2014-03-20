@@ -85,7 +85,6 @@ class PixProofPlugin {
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 		add_action( 'admin_init', array( $this, 'wpgrade_init_plugin' ) );
 
-
 		add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
 
 		// Add an action link pointing to the options page.
@@ -98,7 +97,7 @@ class PixProofPlugin {
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 
 		// Load public-facing style sheet and JavaScript.
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), 0 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 		add_action( 'plugins_loaded', array( $this, 'register_metaboxes'), 14 );
@@ -391,7 +390,6 @@ class PixProofPlugin {
 	static function attachment_class($attachment){
 		echo self::get_attachment_class($attachment) ;
 	}
-
 
 	static function attachment_data($attachment){
 
