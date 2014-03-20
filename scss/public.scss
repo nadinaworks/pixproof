@@ -102,6 +102,7 @@
         .separator {
             max-width: 0;
             margin: 0 auto;
+            height: 1px;
 
 			background: white;
 
@@ -136,6 +137,12 @@
 	background: black;
 	cursor: pointer;
 }
+
+
+
+
+
+// Magnific Popup
 
 .mfp-arrow{
 	position: absolute;
@@ -186,10 +193,4 @@
 .mfp-counter{
 	font-size: 1em;
 	color: white;
-}
-
-
-.separator--data{
-	background: transparent;
-	border-bottom: 2px dashed black;
 }

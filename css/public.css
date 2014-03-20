@@ -124,6 +124,7 @@
 .proof-photo__meta .separator {
   max-width: 0;
   margin: 0 auto;
+  height: 1px;
   background: white;
   -moz-transition: all 0.1s linear;
   -o-transition: all 0.1s linear;
@@ -202,11 +203,6 @@
 .mfp-counter {
   font-size: 1em;
   color: white;
-}
-
-.separator--data {
-  background: transparent;
-  border-bottom: 2px dashed black;
 }
 
 /*# sourceMappingURL=public.css.map */
