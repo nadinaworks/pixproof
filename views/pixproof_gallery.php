@@ -18,7 +18,7 @@
 //}
 // <span><?php echo "Image {$specific[$attachment->ID]} of {$number_of_images}"; </span>
 ?>
-<div id="pixproof_gallery" class="gallery  gallery-columns-<?php echo $columns; ?>  cf  js-post-gallery">
+<div id="pixproof_gallery" class="gallery  gallery-columns-<?php echo $columns; ?>  cf  js-pixproof-gallery">
 	<?php 
 
 		foreach ( $attachments as $attachment ) {
@@ -37,7 +37,7 @@
 				<div class="proof-photo__meta">
 					<div class="flexbox">
 						<div class="flexbox__item">
-				            <ul class="actions-nav">
+				            <ul class="actions-nav  nav  nav--stacked">
 				            	<li>
 				        			<a class="meta__action  zoom-action" href="<?php echo $image_full[0]; ?>"  data-photoid="<?php echo $attachment->ID; ?>"><?php _e('Zoom', 'cmb' ); ?></a>
 				            	</li>

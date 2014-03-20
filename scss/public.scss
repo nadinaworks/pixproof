@@ -5,7 +5,6 @@
     $SETUP
 \*------------------------------------*/
 @import "vars";
-@import "inuit.css/inuit";
 @import "magnific-popup/main";
 
 
@@ -37,6 +36,7 @@
 	        @include opacity(1);
 	        background: rgba(0, 0, 0, 0.5);
 	    }
+
 	    .separator {
 	        max-width:80%;
 	        margin-top:$_u2;
@@ -63,18 +63,20 @@
 		color: white;
 	}
 
-	.actions-nav{
-		@extend .nav;
-		@extend .nav--stacked;
-		@extend .text--center;
-		margin: $_u2 0;
-		padding: 0;
+	&.scrooled_from_comments{
+		@include scale(1.2);
+		z-index: 1;
 	}
 
 	a{
 		color: white;
 	}
 
+	.actions-nav{
+		@extend .text--center;
+		margin: $_u2 0;
+		padding: 0;
+	}
 }
 
 	.proof-photo__container{
