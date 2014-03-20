@@ -80,7 +80,6 @@ class PixProofPlugin {
 
 		$this->plugin_basepath = plugin_dir_path( __FILE__ );
 		$this->config = self::config();
-
 		// Load plugin text domain
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 		add_action( 'admin_init', array( $this, 'wpgrade_init_plugin' ) );
@@ -242,7 +241,7 @@ class PixProofPlugin {
 	 */
 	function enqueue_styles() {
 		wp_enqueue_style( 'wpgrade-main-style', plugins_url( 'css/inuit.css', __FILE__ ), array(), $this->version );
-		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'css/public.css', __FILE__ ), array('wpgrade-main-style'), $this->version );
+//		wp_enqueue_style( $this->plugin_slug . '-plugin-styles', plugins_url( 'css/public.css', __FILE__ ), array('wpgrade-main-style'), $this->version );
 	}
 
 	/**
@@ -337,6 +336,8 @@ class PixProofPlugin {
 		$number_of_images = self::set_number_of_images( count( $attachments ) );
 		$template_name = 'pixproof_gallery'.EXT;
 		$_located = locate_template("templates/". $template_name, false, false);
+
+		$pixproof_path = self::get_base_path();
 
 		// use the default one if the (child) theme doesn't have it
 		if(!$_located) {
@@ -435,6 +436,10 @@ class PixProofPlugin {
 		$comment = preg_replace_callback('/#*\d+/', 'match_callback', $comment);
 
 		return $comment;
+	}
+
+	static function get_base_path(){
+		return plugin_dir_path( __FILE__ );
 	}
 
 }
