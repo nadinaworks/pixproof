@@ -14,6 +14,7 @@
 			var photo = $('#item-' + $(this).data('photoid'));
 
 			$(photo).toggleClass('selected');
+			$(photo).addClass('selecting');
 
 			var selected = $(photo).hasClass('selected'),
 				attachment_id = $(photo).data('attachment_id');
@@ -32,22 +33,18 @@
 					selected: selected
 				},
 				beforeSend: function() {
-					$('.open_proof_pixgallery i').removeClass('icon-camera-retro');
-					$('.open_proof_pixgallery i').addClass('icon-spin icon-refresh');
+					//
 				}, //show loading just when link is clicked
 				complete: function() {
-					$('.open_proof_pixgallery i').removeClass('icon-spin icon-refresh');
-					$('.open_proof_pixgallery i').addClass('icon-camera-retro');
+					setTimeout(function(){
+						$(photo).removeClass('selecting');
+					}, 600);
 				}, //stop showing loading when the process is complete
 
 				success:function(response){
-
 						// console.log(response);
-
 						// var result = JSON.parse(response);
-
 						// console.log(result);
-
 				}
 			});			
 		});

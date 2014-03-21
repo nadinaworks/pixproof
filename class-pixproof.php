@@ -103,7 +103,7 @@ class PixProofPlugin {
 		add_action( 'init', array( $this, 'register_entities'), 99999);
 
 		// a little hook into the_content
-		add_filter('the_content', array($this, 'hook_into_the_content'), 99999, 1);
+		add_filter('the_content', array($this, 'hook_into_the_content'), 10, 1);
 
 		// parse comments to find referances for images
 		add_filter('comment_text', array($this, 'parse_comments'));
