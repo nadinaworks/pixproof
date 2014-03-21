@@ -19,11 +19,11 @@
 				attachment_id = $(photo).data('attachment_id');
 
 			if( selected ){
-				jQuery(this).html('Deselect');
-				photo.find('.select-action').html('Deselect');
+				jQuery(this).find('.button-text').html('Deselect');
+				photo.find('.select-action  .button-text').html('Deselect');
 			} else {
-				jQuery(this).html('Select');
-				photo.find('.select-action').html('Select');
+				jQuery(this).find('.button-text').html('Select');
+				photo.find('.select-action .button-text').html('Select');
 			}
 
 			$.ajax({ type: "post",url: pixproof.ajaxurl,data: {
