@@ -63,27 +63,27 @@ function pixproof_sample_metaboxes( array $meta_boxes ) {
 				'id'   => $prefix . 'file',
 				'type' => 'file',
 			),
-			array(
-				'name' => __( 'Email', 'cmb' ),
-				'id'   => $prefix . 'email',
-				'type' => 'text_email',
-				'repeatable' => true,
-			),
-			array(
-				'name' => __( 'Test Money', 'cmb' ),
-				'desc' => __( 'field description (optional)', 'cmb' ),
-				'id'   => $prefix . 'test_textmoney',
-				'type' => 'text_money',
-				// 'before'     => '£', // override '$' symbol if needed
-				// 'repeatable' => true,
-			),
-			array(
-				'name'    => __( 'Test Color Picker', 'cmb' ),
-				'desc'    => __( 'field description (optional)', 'cmb' ),
-				'id'      => $prefix . 'test_colorpicker',
-				'type'    => 'colorpicker',
-				'default' => '#ffffff'
-			),
+//			array(
+//				'name' => __( 'Email', 'cmb' ),
+//				'id'   => $prefix . 'email',
+//				'type' => 'text_email',
+//				'repeatable' => true,
+//			),
+//			array(
+//				'name' => __( 'Test Money', 'cmb' ),
+//				'desc' => __( 'field description (optional)', 'cmb' ),
+//				'id'   => $prefix . 'test_textmoney',
+//				'type' => 'text_money',
+//				// 'before'     => '£', // override '$' symbol if needed
+//				// 'repeatable' => true,
+//			),
+//			array(
+//				'name'    => __( 'Test Color Picker', 'cmb' ),
+//				'desc'    => __( 'field description (optional)', 'cmb' ),
+//				'id'      => $prefix . 'test_colorpicker',
+//				'type'    => 'colorpicker',
+//				'default' => '#ffffff'
+//			),
 //			array(
 //				'name' => __( 'Test Text Area', 'cmb' ),
 //				'desc' => __( 'field description (optional)', 'cmb' ),
