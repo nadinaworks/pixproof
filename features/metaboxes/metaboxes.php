@@ -58,8 +58,8 @@ function pixproof_sample_metaboxes( array $meta_boxes ) {
 				'type' => 'text_date',
 			),
 			array(
-				'name' => __( 'Test Image', 'cmb' ),
-				'desc' => __( 'Upload an image or enter a URL.', 'cmb' ),
+				'name' => __( 'Client .zip archive', 'cmb' ),
+				'desc' => __( 'Upload a .zip archive so the client can download it via the Download link. Leave it empty to hide the link.', 'cmb' ),
 				'id'   => $prefix . 'file',
 				'type' => 'file',
 			),
