@@ -54,6 +54,10 @@
 				</div>
 			</div>
 		</div>
+		<div class="proof-photo__status">
+			<span class="ticker">&check;</span>
+			<span class="spinner"></span>
+		</div>
 		<span class="proof-photo__id">
 			#<?php echo $attachment->ID; ?>
 		</span>

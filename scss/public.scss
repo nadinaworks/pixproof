@@ -46,23 +46,25 @@
 	    }		
 	}
 
-	&.selected:before{
-		content: "\2713";
-		
-		position: absolute;
-		top: 0;
-		right: 0;
-		z-index: 1;
+	&.selected {
+		.proof-photo__status {
+			opacity:1;
 
-		// width: 2em;
-		// height: 2em;
+			span.ticker {
+				opacity:1;
+			}
+		}
+	}
 
-		font-size: 18px;
-		line-height: 32px; // Bottom bar height
-		text-align: center;
-
-		background: black;
-		color: white;
+	&.selecting {
+		.proof-photo__status {
+			span.ticker {
+				opacity:0;
+			}
+			span.spinner {
+				opacity:1;
+			}
+		}
 	}
 
 	&.scrooled_from_comments{
@@ -109,6 +111,49 @@
             @include transition(all 0.1s linear);
         }		
 	}
+.proof-photo__status {
+	@include transition(all .2s linear);
+	
+	span.ticker {
+		display:block;
+
+		font-size: 18px;
+		color: white; 
+
+		line-height: 32px; // Bottom bar height
+		width:32px;
+		text-align: center;
+
+		opacity:0;
+
+		@include transition(all .2s linear);
+	}
+
+	span.spinner {
+		position:absolute;
+		right:0;
+		bottom:0;
+
+		border:3px solid transparent;
+		border-radius:100%;
+
+		opacity:0;
+
+		@extend %spinner;
+
+		@include transition(all .2s linear);
+	} 
+		
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+
+	// width: 2em;
+	// height: 2em;
+
+	opacity:0;
+}
 
 .proof-photo__id{
 	display: block;
@@ -214,4 +259,44 @@ img.mfp-img{
 
 div.mfp-figure:after{
 	content: none;
+}
+
+/*
+ * Spinner
+ */
+%spinner {
+	height:20px;
+	width:20px;
+	margin:0 6px 6px 0;
+
+	border-left:3px solid rgba(255,255,255,.15);
+	border-right:3px solid rgba(255,255,255,.15);
+	border-bottom:3px solid rgba(255,255,255,.15);
+	border-top:3px solid rgba(255,255,255,.8);
+	border-radius:100%;
+
+	-webkit-animation: rotation .6s infinite linear;
+	-moz-animation: rotation .6s infinite linear;
+	-o-animation: rotation .6s infinite linear;
+	animation: rotation .6s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+	from {-webkit-transform: rotate(0deg);}
+	to {-webkit-transform: rotate(359deg);}
+}
+
+@-moz-keyframes rotation {
+	from {-moz-transform: rotate(0deg);}
+	to {-moz-transform: rotate(359deg);}
+}
+
+@-o-keyframes rotation {
+	from {-o-transform: rotate(0deg);}
+	to {-o-transform: rotate(359deg);}
+}
+
+@keyframes rotation {
+from {transform: rotate(0deg);}
+to {transform: rotate(359deg);}
 }
