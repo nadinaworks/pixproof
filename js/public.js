@@ -19,11 +19,11 @@
 				attachment_id = $(photo).data('attachment_id');
 
 			if( selected ){
-				jQuery(this).html('Deselect');
-				photo.find('.select-action').html('Deselect');
+				jQuery(this).find('.button-text').html('Deselect');
+				photo.find('.select-action  .button-text').html('Deselect');
 			} else {
-				jQuery(this).html('Select');
-				photo.find('.select-action').html('Select');
+				jQuery(this).find('.button-text').html('Select');
+				photo.find('.select-action .button-text').html('Select');
 			}
 
 			$.ajax({ type: "post",url: pixproof.ajaxurl,data: {
@@ -54,7 +54,7 @@
 					titleSrc: function(item) {
 						var text = $('#item-' + item.el.data('photoid')).hasClass('selected') == true ? 'Deselect' : 'Select';
 
-						return '<a class="meta__action  meta__action--popup  select-action"  id="popup-selector" href="#" data-photoid="' + item.el.data('photoid') + '">' + text + '</a>';
+						return '<a class="meta__action  meta__action--popup  select-action"  id="popup-selector" href="#" data-photoid="' + item.el.data('photoid') + '"><span class="button-text">' + text + '</span></a>';
 					}					
 				},
 				gallery:{

@@ -1,17 +1,17 @@
 <?php
 /*
 * @package   PixProof
-* @author    Pixelgrade <contact@pixelgrade.com>
+* @author    PixelGrade <contact@pixelgrade.com>
 * @license   GPL-2.0+
 * @link      http://pixelgrade.com
-* @copyright 2014 Pixelgrade Media
+* @copyright 2014 PixelGrade
 *
 * @wordpress-plugin
 Plugin Name: PixProof
 Plugin URI:  http://pixelgrade.com
 Description: WordPress photo gallery proofing plugin.
 Version: 1.0.0
-Author: Pixelgrade Media
+Author: PixelGrade
 Author URI: http://pixelgrade.com
 Author Email: contact@pixelgrade.com
 Text Domain: proof
