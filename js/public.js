@@ -54,7 +54,7 @@
 					titleSrc: function(item) {
 						var text = $('#item-' + item.el.data('photoid')).hasClass('selected') == true ? 'Deselect' : 'Select';
 
-						return '<a class="meta__action  meta__action--popup  select-action"  id="popup-selector" href="#" data-photoid="' + item.el.data('photoid') + '">' + text + '</a>';
+						return '<a class="meta__action  meta__action--popup  select-action"  id="popup-selector" href="#" data-photoid="' + item.el.data('photoid') + '"><span class="button-text">' + text + '</span></a>';
 					}					
 				},
 				gallery:{
