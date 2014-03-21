@@ -21,8 +21,8 @@ function pixproof_sample_metaboxes( array $meta_boxes ) {
 	$prefix = '_pixproof_';
 
 	$meta_boxes['test_metabox'] = array(
-		'id'         => 'test_metabox',
-		'title'      => __( 'Test Metabox', 'cmb' ),
+		'id'         => 'pixroof_gallery',
+		'title'      => __( 'Pixproof Gallery', 'cmb' ),
 		'pages'      => array( 'proof_gallery', ), // Post type
 		'context'    => 'normal',
 		'priority'   => 'high',
