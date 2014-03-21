@@ -412,7 +412,7 @@ class pixproof_Meta_Box {
 
 			echo '<tr class="cmb-type-'. sanitize_html_class( $field['type'] ) .' pixproof_id_'. sanitize_html_class( $field['id'] ) . $classes .'">';
 
-			if ( $field['type'] == "title" ) {
+			if ( $field['type'] == "title" || $field['type'] == "gallery" ) {
 				echo '<td colspan="2">';
 			} else {
 				if ( isset( $meta_box['show_names'] ) && $meta_box['show_names'] == true && $field['type'] != 'gallery' ) {
