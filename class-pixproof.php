@@ -298,7 +298,7 @@ class PixProofPlugin {
 
 	function hook_into_the_content( $content ){
 
-		if ( get_post_type() !== 'proof_gallery' ) return false;
+		if ( get_post_type() !== 'proof_gallery' ) return $content;
 		$style = '';
 		// == This order is important ==
 		$pixproof_path = self::get_base_path();
