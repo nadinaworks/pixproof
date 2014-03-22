@@ -31,10 +31,10 @@ return array
 
 		'fields' => array
 			(
-//				'hiddens'
-//					=> include 'settings/hiddens'.EXT,
-//				'post_types'
-//					=> include 'settings/post_types'.EXT,
+				'hiddens'
+					=> include 'settings/hiddens'.EXT,
+				'post_types'
+					=> include 'settings/post_types'.EXT,
 //				'taxonomies'
 //					=> include 'settings/taxonomies'.EXT,
 			),
@@ -71,7 +71,7 @@ return array
 
 		'callbacks' => array
 			(
-//				'save_settings' => 'save_proof_settings'
+				'save_settings' => 'save_proof_settings'
 			),
 
 //		'display_settings' => $display_settings,

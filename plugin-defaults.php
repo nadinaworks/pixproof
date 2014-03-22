@@ -6,12 +6,11 @@
 		'settings_saved_once' => '0',
 
 	# "Post Types" fields
-//	'show_on_post' => false,
-//	'show_on_page' => false,
-//	'show_on_hompage' => false,
-//	'show_on_archive' => false,
-//	'like_action' => 'hover',
-//	'hover_time' => 1000,
-//	'free_votes' => false,
-//	'load_likes_with_ajax' => false,
+	'enable_pixproof_gallery' => true,
+
+		'pixproof_single_item_label' => __('Proof Gallery', 'pixproof_txtd'),
+		'pixproof_multiple_items_label' => __('Proof Galleries', 'pixproof_txtd'),
+		'pixproof_change_single_item_slug' => false,
+		'pixproof_gallery_new_single_item_slug' => 'pixproof_gallery'
+
 	); # config
