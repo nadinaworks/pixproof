@@ -90,15 +90,15 @@
 					if (target.length) {
 						$('body').animate(
 							{
-								scrollTop: target.offset().top-100
+								scrollTop: target.offset().top-200
 							},
-							1000,
+							500,
 							function (){
 								$(target).addClass('scrooled_from_comments');
 
 								setTimeout(function(){
 									$(target).removeClass('scrooled_from_comments');
-								}, 1000);
+								}, 800);
 							}
 						);
 
