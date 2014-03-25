@@ -445,7 +445,8 @@ class PixProofPlugin {
 		global $post;
 		if ( 'proof_gallery' !== $post->post_type ) return $comment;
 
-		$comment = preg_replace_callback('/#*\d+/', 'match_callback', $comment);
+//		$comment = preg_replace_callback('/(^| )#*(\d+)( |$)/ism', 'match_callback', $comment);
+		$comment = preg_replace_callback("=(^| )#*\d+( |/?|/!|/.|/n|$)=", 'match_callback', $comment);
 
 		return $comment;
 	}
@@ -458,7 +459,8 @@ class PixProofPlugin {
 
 function match_callback( $matches ){
 
-	$the_id = substr($matches[0], 1);
+	$the_id = substr($matches[0], 2);
+
 	$matches[0] = '<span class="pixproof_photo_ref" data-href="#item-'.$the_id.'">#'.$the_id.'</span>';
 
 	return $matches[0];
