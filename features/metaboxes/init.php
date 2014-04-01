@@ -252,11 +252,11 @@ class pixproof_Meta_Box {
 			$styles[] = 'farbtastic';
 		}
 		wp_register_script( 'cmb-timepicker', PIXPROOF_META_BOX_URL . 'js/jquery.timePicker.min.js' );
-		wp_register_script( 'cmb-scripts', PIXPROOF_META_BOX_URL .'js/cmb'. $min .'.js', $scripts, self::CMB_VERSION );
+		wp_register_script( 'cmb-scripts2', PIXPROOF_META_BOX_URL .'js/cmb'. $min .'.js', $scripts, self::CMB_VERSION );
 		wp_register_script( 'proof_pixgallery', PIXPROOF_META_BOX_URL . 'js/proof_pixgallery.js' );
 		wp_enqueue_media();
 
-		wp_localize_script( 'cmb-scripts', 'pixproof_l10', array(
+		wp_localize_script( 'cmb-scripts2', 'pixproof_l10', array(
 			'ajax_nonce'      => wp_create_nonce( 'ajax_nonce' ),
 			'script_debug'    => defined('SCRIPT_DEBUG') && SCRIPT_DEBUG,
 			'new_admin_style' => version_compare( $wp_version, '3.7', '>' ),
