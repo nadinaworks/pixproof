@@ -77,7 +77,7 @@ return array
 //		'display_settings' => $display_settings,
 
 		'github_updater' => array(
-			'slug' => 'pixproof/pixproof.php',
+			'slug' => basename(dirname(__FILE__)).'/pixproof.php',
 			'api_url' => 'https://api.github.com/repos/pixelgrade/pixproof',
 			'raw_url' => 'https://raw.github.com/pixelgrade/pixproof/update',
 			'github_url' => 'https://github.com/pixelgrade/pixproof/tree/update',
