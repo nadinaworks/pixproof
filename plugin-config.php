@@ -33,6 +33,8 @@ return array
 			(
 				'hiddens'
 					=> include 'settings/hiddens'.EXT,
+//				'general'
+//					=> include 'settings/general'.EXT,
 				'post_types'
 					=> include 'settings/post_types'.EXT,
 //				'taxonomies'

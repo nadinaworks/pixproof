@@ -11,7 +11,7 @@
 			ev.preventDefault();
 			ev.stopPropagation();
 			
-			var photo = $('#item-' + $(this).data('photoid'));
+			var photo = $('#' + $(this).data('photoid'));
 
 			$(photo).toggleClass('selected');
 			$(photo).addClass('selecting');
@@ -58,7 +58,7 @@
 				mainClass: 'mfp-fade',
 				image:{
 					titleSrc: function(item) {
-						var text = $('#item-' + item.el.data('photoid')).hasClass('selected') == true ? 'Deselect' : 'Select';
+						var text = $('#' + item.el.data('photoid')).hasClass('selected') == true ? 'Deselect' : 'Select';
 
 						return '<a class="meta__action  meta__action--popup  select-action"  id="popup-selector" href="#" data-photoid="' + item.el.data('photoid') + '"><span class="button-text">' + text + '</span></a>';
 					}					

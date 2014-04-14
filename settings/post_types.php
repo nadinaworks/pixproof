@@ -4,7 +4,7 @@
 return array
 (
 	'type' => 'postbox',
-	'label' => __('Gallery Settings', 'pixproof_txtd'),
+	'label' => __('Proof Galleries Settings', 'pixproof_txtd'),
 
 	// Custom field settings
 	// ---------------------
@@ -13,7 +13,7 @@ return array
 	(
 		'enable_pixproof_gallery' => array
 		(
-			'label' => __('Enable Pixproof Gallery', 'pixproof_txtd'),
+			'label' => __('Enable Pixproof Galleries', 'pixproof_txtd'),
 			'default' => true,
 			'type' => 'switch',
 			'show_group' => 'enable_pixproof_gallery_group',

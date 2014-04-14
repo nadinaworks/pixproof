@@ -52,6 +52,35 @@ function pixproof_sample_metaboxes( array $meta_boxes ) {
 				'id'   => $prefix . 'file',
 				'type' => 'file',
 			),
+			array(
+				'name' => __('Photos Display Name', wpgrade::textdomain()),
+				'desc' => __('How would you like to identify each photo?', wpgrade::textdomain()),
+				'id'   => $prefix . 'photo_display_name',
+				'type' => 'select',
+				'options' => array(
+					array(
+						'name' => __('Unique IDs', wpgrade::textdomain()),
+						'value' => 'unique_ids'
+					),
+					array(
+						'name' => __('Consecutive IDs', wpgrade::textdomain()),
+						'value' => 'consecutive_ids'
+					),
+					array(
+						'name' => __('File Name', wpgrade::textdomain()),
+						'value' => 'file_name'
+					),
+					array(
+						'name' => __('Unique IDs and Photo Title', wpgrade::textdomain()),
+						'value' => 'unique_ids_photo_title'
+					),
+					array(
+						'name' => __('Consecutive IDs and Photo Title', wpgrade::textdomain()),
+						'value' => 'consecutive_ids_photo_title'
+					),
+				),
+				'std' => 'fullwidth',
+			),
 		),
 	);
 	// Add other metaboxes as needed

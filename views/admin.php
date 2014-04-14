@@ -44,6 +44,7 @@
 
 		<?php echo $f = pixproof::form($config, $processor);
 			echo $f->field('hiddens')->render();
+			//echo $f->field('general')->render();
 			echo $f->field('post_types')->render();
 		?>
 

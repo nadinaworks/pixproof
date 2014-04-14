@@ -318,7 +318,7 @@ class PixProofPlugin {
 	}
 
 	static function get_gallery( $post_id = NULL ) {
-		// get teh global $post variable or a specific post
+		// get the global $post variable or a specific post
 		if ( $post_id == NULL ) {
 			$post = get_post($post_id);
 		} else {
@@ -326,7 +326,7 @@ class PixProofPlugin {
 		}
 
 //		$attachments = get_children( array( 'post_parent' => $post->post_parent, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => 'ASC', 'orderby' => 'menu_order ID' ) );
-		// get this gellery's metadata
+		// get this gallery's metadata
 		$gallery_data = get_post_meta( get_the_ID(), '_pixproof_main_gallery', true );
 		// quit if there is no gallery data
 		if ( empty( $gallery_data ) || ! isset($gallery_data['gallery']) ) return false;
@@ -340,12 +340,12 @@ class PixProofPlugin {
 		}
 
 		$columns = 3;
-		if ( isset($gallery_data['columns']) && !empty($gallery_data['columns']) ) {
-			$columns = $gallery_data['columns'];
-		}
+//		if ( isset($gallery_data['columns']) && !empty($gallery_data['columns']) ) {
+//			$columns = $gallery_data['columns'];
+//		}
 
 		// get attachments
-		$attachments = get_posts( array( 'post_status' => 'any', 'post_type' => 'attachment', 'post__in' => $gallery_ids, 'order' => 'ASC', 'orderby' => $order, 'posts_per_page' => '-1' ) );
+		$attachments = get_posts( array( 'post_status' => 'any', 'post_type' => 'attachment', 'post__in' => $gallery_ids, 'orderby' => 'post__in', 'posts_per_page' => '-1' ) );
 		if ( is_wp_error($attachments)  || empty($attachments) ) return false;
 		$number_of_images = self::set_number_of_images( count( $attachments ) );
 		$template_name = 'pixproof_gallery'.EXT;
@@ -355,6 +355,9 @@ class PixProofPlugin {
 		if(!$_located) {
 			$_located = dirname(__FILE__).'/views/'. $template_name;
 		}
+
+		//get the settings so they are available in the template
+		$photo_display_name = get_post_meta( get_the_ID(), '_pixproof_photo_display_name', true );
 
 		ob_start();
 		require $_located;
@@ -446,7 +449,7 @@ class PixProofPlugin {
 		if ( 'proof_gallery' !== $post->post_type ) return $comment;
 
 //		$comment = preg_replace_callback('/(^| )#*(\d+)( |$)/ism', 'match_callback', $comment);
-		$comment = preg_replace_callback("=(^| )#*\d+( |/?|/!|/.|/n|$)=", 'match_callback', $comment);
+		$comment = preg_replace_callback("=(^| )*#[\w\-]+=", 'match_callback', $comment);
 
 		return $comment;
 	}
