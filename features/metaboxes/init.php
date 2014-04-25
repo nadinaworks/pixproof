@@ -282,11 +282,15 @@ class pixproof_Meta_Box {
 	public function do_scripts( $hook ) {
 		// only enqueue our scripts/styles on the proper pages
 		if ( $hook == 'post.php' || $hook == 'post-new.php' || $hook == 'page-new.php' || $hook == 'page.php' ) {
-			wp_enqueue_script( 'cmb-scripts' );
 
-			// default is to show cmb styles on post pages
-			if ( $this->_meta_box['pixproof_styles'] != false )
-				wp_enqueue_style( 'pixproof-styles' );
+			if ( get_post_type() === 'proof_gallery' ) {
+				wp_enqueue_script( 'cmb-scripts2' );
+
+				// default is to show cmb styles on post pages
+				if ( $this->_meta_box['pixproof_styles'] != false )
+					wp_enqueue_style( 'pixproof-styles' );
+
+			}
 		}
 	}
 
