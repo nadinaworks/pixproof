@@ -55,7 +55,7 @@
 	};
 
 	/*
-	 * Usefull functions
+	 * Useful functions
 	 */
 
 	function check_checkbox_checked( input ){ // yes the name is an ironic
