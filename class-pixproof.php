@@ -24,7 +24,7 @@ class PixProofPlugin {
 	 *
 	 * @const   string
 	 */
-	protected $version = '1.0.0';
+	protected $version = '1.0.3';
 	/**
 	 * Unique identifier for your plugin.
 	 *
