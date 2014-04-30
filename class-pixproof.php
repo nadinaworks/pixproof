@@ -255,7 +255,7 @@ class PixProofPlugin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script( $this->plugin_slug . '-plugin-script', plugins_url( 'js/public.js', __FILE__ ), array( 'jquery' ), $this->version );
+		wp_enqueue_script( $this->plugin_slug . '-plugin-script', plugins_url( 'js/public.js', __FILE__ ), array( 'jquery' ), $this->version, true );
 		wp_localize_script( $this->plugin_slug . '-plugin-script', 'pixproof', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 	}
 

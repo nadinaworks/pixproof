@@ -22,7 +22,7 @@ function pixproof_sample_metaboxes( array $meta_boxes ) {
 
 	$meta_boxes['test_metabox'] = array(
 		'id'         => 'pixroof_gallery',
-		'title'      => __( 'Pixproof Gallery', 'cmb' ),
+		'title'      => __( 'Pixproof Gallery', 'pixproof_l10n' ),
 		'pages'      => array( 'proof_gallery', ), // Post type
 		'context'    => 'normal',
 		'priority'   => 'high',
@@ -30,52 +30,52 @@ function pixproof_sample_metaboxes( array $meta_boxes ) {
 		// 'pixproof_styles' => true, // Enqueue the CMB stylesheet on the frontend
 		'fields'     => array(
 			array(
-				'name' => __( 'Gallery', 'cmb' ),
+				'name' => __( 'Gallery', 'pixproof_l10n' ),
 				'id'   => $prefix . 'main_gallery',
 				'type' => 'gallery',
 				'show_names' => false,
 			),
 			array(
-				'name' => __( 'Client Name', 'cmb' ),
-//				'desc' => __( 'field description (optional)', 'cmb' ),
+				'name' => __( 'Client Name', 'pixproof_l10n' ),
+//				'desc' => __( 'field description (optional)', 'pixproof_l10n' ),
 				'id'   => $prefix . 'client_name',
 				'type' => 'text',
 			),
 			array(
-				'name' => __( 'Date', 'cmb' ),
+				'name' => __( 'Date', 'pixproof_l10n' ),
 				'id'   => $prefix . 'event_date',
 				'type' => 'text_date',
 			),
 			array(
-				'name' => __( 'Client .zip archive', 'cmb' ),
-				'desc' => __( 'Upload a .zip archive so the client can download it via the Download link. Leave it empty to hide the link.', 'cmb' ),
+				'name' => __( 'Client .zip archive', 'pixproof_l10n' ),
+				'desc' => __( 'Upload a .zip archive so the client can download it via the Download link. Leave it empty to hide the link.', 'pixproof_l10n' ),
 				'id'   => $prefix . 'file',
 				'type' => 'file',
 			),
 			array(
-				'name' => __('Photos Display Name', wpgrade::textdomain()),
-				'desc' => __('How would you like to identify each photo?', wpgrade::textdomain()),
+				'name' => __('Photos Display Name', 'pixproof_l10n'),
+				'desc' => __('How would you like to identify each photo?', 'pixproof_l10n'),
 				'id'   => $prefix . 'photo_display_name',
 				'type' => 'select',
 				'options' => array(
 					array(
-						'name' => __('Unique IDs', wpgrade::textdomain()),
+						'name' => __('Unique IDs', 'pixproof_l10n'),
 						'value' => 'unique_ids'
 					),
 					array(
-						'name' => __('Consecutive IDs', wpgrade::textdomain()),
+						'name' => __('Consecutive IDs', 'pixproof_l10n'),
 						'value' => 'consecutive_ids'
 					),
 					array(
-						'name' => __('File Name', wpgrade::textdomain()),
+						'name' => __('File Name', 'pixproof_l10n'),
 						'value' => 'file_name'
 					),
 					array(
-						'name' => __('Unique IDs and Photo Title', wpgrade::textdomain()),
+						'name' => __('Unique IDs and Photo Title', 'pixproof_l10n'),
 						'value' => 'unique_ids_photo_title'
 					),
 					array(
-						'name' => __('Consecutive IDs and Photo Title', wpgrade::textdomain()),
+						'name' => __('Consecutive IDs and Photo Title', 'pixproof_l10n'),
 						'value' => 'consecutive_ids_photo_title'
 					),
 				),
