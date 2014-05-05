@@ -10,7 +10,7 @@
 Plugin Name: PixProof
 Plugin URI:  http://pixelgrade.com
 Description: WordPress photo gallery proofing plugin.
-Version: 1.0.4
+Version: 1.0.5
 Author: PixelGrade
 Author URI: http://pixelgrade.com
 Author Email: contact@pixelgrade.com
