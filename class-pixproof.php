@@ -297,8 +297,7 @@ class PixProofPlugin {
 	}
 
 	function hook_into_the_content( $content ){
-
-		if ( get_post_type() !== 'proof_gallery' ) return $content;
+		if ( get_post_type() !== 'proof_gallery' || post_password_required() ) return $content;
 		$style = '';
 		// == This order is important ==
 		$pixproof_path = self::get_base_path();
@@ -340,9 +339,9 @@ class PixProofPlugin {
 		}
 
 		$columns = 3;
-//		if ( isset($gallery_data['columns']) && !empty($gallery_data['columns']) ) {
-//			$columns = $gallery_data['columns'];
-//		}
+		if ( isset($gallery_data['columns']) && !empty($gallery_data['columns']) ) {
+			$columns = $gallery_data['columns'];
+		}
 
 		// get attachments
 		$attachments = get_posts( array( 'post_status' => 'any', 'post_type' => 'attachment', 'post__in' => $gallery_ids, 'orderby' => 'post__in', 'posts_per_page' => '-1' ) );
