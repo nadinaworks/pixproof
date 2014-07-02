@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*------------------------------------*\ 
-    $SETUPpp
+    $SETUP
 \*------------------------------------*/
 /*------------------------------------*\
     VARS.SCSS
@@ -56,8 +56,9 @@
   -o-transition: all 0.3s cubic-bezier(0.86, 0, 0.07, 1);
   -webkit-transition: all 0.3s cubic-bezier(0.86, 0, 0.07, 1);
   transition: all 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+  text-align: center;
 }
-.proof-photo:hover {
+.proof-photo:hover .proof-photo__bg {
   background: #EEE9E9;
 }
 .proof-photo:hover .proof-photo__meta {
@@ -97,6 +98,36 @@
   text-align: center;
   margin: 12px 0;
   padding: 0;
+}
+.proof-photo .nav {
+  list-style: none !important;
+  margin-left: 0;
+}
+.proof-photo .nav:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.proof-photo .nav > li {
+  margin: 0;
+}
+.proof-photo .nav > li,
+.proof-photo .nav > li > a {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+.proof-photo .nav--stacked > li {
+  display: list-item;
+}
+.proof-photo .nav--stacked > li > a {
+  display: block;
+  width: 100%;
+}
+
+.proof-photo__bg {
+  display: inline-block;
+  margin: 0 auto;
 }
 
 .proof-photo__container {
@@ -225,6 +256,7 @@
   height: 0;
   border-top: 30px solid transparent;
   border-bottom: 30px solid transparent;
+  border-left: 30px solid transparent;
   border-right: 30px solid white;
 }
 
@@ -234,6 +266,7 @@
   height: 0;
   border-top: 30px solid transparent;
   border-bottom: 30px solid transparent;
+  border-right: 30px solid transparent;
   border-left: 30px solid white;
 }
 
@@ -328,54 +361,71 @@ div.mfp-figure:after {
 
 .gallery-columns-1 .gallery-item {
   max-width: 100%;
+  width: 100%;
 }
 
 .gallery-columns-2 .gallery-item {
   max-width: 48%;
+  width: 48%;
   max-width: -webkit-calc(50% - 4px);
   max-width: calc(50% - 4px);
+  width: calc(50% - 4px);
 }
 
 .gallery-columns-3 .gallery-item {
   max-width: 32%;
+  width: 32%;
   max-width: -webkit-calc(33.3% - 4px);
   max-width: calc(33.3% - 4px);
+  width: calc(33.3% - 4px);
 }
 
 .gallery-columns-4 .gallery-item {
   max-width: 23%;
+  width: 23%;
   max-width: -webkit-calc(25% - 4px);
   max-width: calc(25% - 4px);
+  width: calc(25% - 4px);
 }
 
 .gallery-columns-5 .gallery-item {
   max-width: 19%;
+  width: 19%;
   max-width: -webkit-calc(20% - 4px);
   max-width: calc(20% - 4px);
+  width: calc(20% - 4px);
 }
 
 .gallery-columns-6 .gallery-item {
   max-width: 15%;
+  width: 15%;
   max-width: -webkit-calc(16.7% - 4px);
   max-width: calc(16.7% - 4px);
+  width: calc(16.7% - 4px);
 }
 
 .gallery-columns-7 .gallery-item {
   max-width: 13%;
+  width: 13%;
   max-width: -webkit-calc(14.28% - 4px);
   max-width: calc(14.28% - 4px);
+  width: calc(14.28% - 4px);
 }
 
 .gallery-columns-8 .gallery-item {
   max-width: 11%;
+  width: 11%;
   max-width: -webkit-calc(12.5% - 4px);
   max-width: calc(12.5% - 4px);
+  width: calc(12.5% - 4px);
 }
 
 .gallery-columns-9 .gallery-item {
   max-width: 9%;
+  width: 9%;
   max-width: -webkit-calc(11.1% - 4px);
   max-width: calc(11.1% - 4px);
+  width: calc(11.1% - 4px);
 }
 
 .gallery-columns-1 .gallery-item:nth-of-type(1n),

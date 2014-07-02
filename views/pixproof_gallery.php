@@ -65,6 +65,7 @@
 		?>
 
 		<div class="proof-photo  js-proof-photo  gallery-item <?php self::attachment_class( $attachment ); ?>" <?php self::attachment_data( $attachment ); ?>  id="<?php echo $image_id_tag; ?>">
+			<div class="proof-photo__bg">
 			<div class="proof-photo__container">
 				<img src="<?php echo $thumb_img[0]; ?>" alt="<?php echo $attachment->post_title; ?>"/>
 
@@ -89,12 +90,13 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="proof-photo__status">
-				<span class="ticker">&check;</span>
-				<span class="spinner"></span>
+				<div class="proof-photo__status">
+					<span class="ticker">&check;</span>
+					<span class="spinner"></span>
+				</div>
 			</div>
 			<span class="proof-photo__id"><?php echo $image_name; ?></span>
+			</div>
 		</div>
 		<?php
 
