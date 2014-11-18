@@ -267,7 +267,7 @@ class PixProofPlugin {
 		$this->plugin_screen_hook_suffix = add_options_page(
 			__( 'PixProof', $this->plugin_slug ),
 			__( 'PixProof', $this->plugin_slug ),
-			'edit_plugins',
+			'manage_options',
 			$this->plugin_slug,
 			array( $this, 'display_plugin_admin_page' )
 		);
